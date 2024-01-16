@@ -3,14 +3,14 @@
 import pandas as pd
 import matplotlib.pyplot as plot
 
-df = pd.read_csv('Tree_Data.csv')
+df = pd.read_csv('../example/Tree_Data.csv')
 
 # visualisation
 def bar_plot(df, type):
     """ This function gives barplots in output. The kind of barplot is choosen
       by the use through the input parameter type """
 
-    if type == first:
+    if type == 1:
         df.dropna(subset=['Event'], inplace=True)
         df = df.fillna(0)
 
@@ -69,6 +69,6 @@ def bar_plot(df, type):
         ax.set_xlabel('Field')
         ax.set_ylabel('Count')
         ax.set_title('Count of Species for Each Field')
-        plt.legend(title='Species', bbox_to_anchor=(1.05, 1), loc='upper left')
-        plt.show()
+        plot.legend(title='Species', bbox_to_anchor=(1.05, 1), loc='upper left')
+        plot.show()
 
