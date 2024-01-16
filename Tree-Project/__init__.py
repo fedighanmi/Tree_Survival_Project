@@ -71,4 +71,3 @@ def bar_plot(df, type):
         ax.set_title('Count of Species for Each Field')
         plot.legend(title='Species', bbox_to_anchor=(1.05, 1), loc='upper left')
         plot.show()
-
