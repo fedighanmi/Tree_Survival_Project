@@ -4,6 +4,7 @@ import matplotlib.pyplot as plot
 import warnings
 import polars.selectors as cs
 import seaborn as sns
+import polars as pl
 
 # Ignore all warnings
 warnings.filterwarnings("ignore")
@@ -22,6 +23,7 @@ def bar_plot(df, type):
         df['Alive'] = df['Alive'].replace('X', 1)
 
         df_subset = df[['Species', 'Alive', 'Event']]
+        df_subset = df_subset.rename(columns = {'Event': 'Dead'})
 
         by_species_df = df_subset.groupby('Species').sum()
 
@@ -32,7 +34,6 @@ def bar_plot(df, type):
 
         species_df = pl.DataFrame(by_species_df)
 
-        species_df
         data_counts = species_df.melt(id_vars="Species",
                                       value_vars=cs.numeric(),
                                       variable_name="Status",
@@ -49,8 +50,15 @@ def bar_plot(df, type):
             errorbar="sd", palette="dark", alpha=.6, height=6
         )
         g.despine(left=True)
-        g.set_axis_labels("", "Count")
-        g.legend.set_title("Bar Chart: Species vs Status")
+        g.set_axis_labels("Species", "Count")
+        plt.subplots_adjust(top=0.9)  #leave space for the title
+        g.fig.suptitle("Bar Chart: Species vs Status")
+
+        for p in g.ax.patches:
+            g.ax.annotate(f'{p.get_height():.0f}',
+                          (p.get_x() + p.get_width() / 2., p.get_height()),
+                          ha='center', va='center', xytext=(0, 10),
+                          textcoords='offset points')
         plot.show()
 
     elif type == "Species_vs_field":
@@ -66,4 +74,49 @@ def bar_plot(df, type):
         ax.set_ylabel('Count')
         ax.set_title('Count of Species for Each Field')
         plot.legend(title='Species', bbox_to_anchor=(1.05, 1), loc='upper left')
+        plot.show()
+
+    elif type == "Light level vs status":
+
+        df.dropna(subset=['Event'], inplace=True)
+        df = df.fillna(0)
+
+        df['Alive'] = df['Alive'].replace('X', 1)
+
+        df_sublight = df[['Light_Cat', 'Alive', 'Event']]
+        df_sublight = df_sublight.rename(columns={'Event': 'Dead'})
+
+        by_light_df = df_sublight.groupby('Light_Cat').sum()
+
+        light_cat = ["High", "Low", "Med"]
+        by_light_df.insert(0, 'Light_Cat', light_cat)
+
+        light_df = pl.DataFrame(by_light_df)
+
+        data_light_counts = light_df.melt(id_vars="Light_Cat",
+                                          value_vars=cs.numeric(),
+                                          variable_name="Status",
+                                          value_name="Count")
+
+        # plot
+        sns.set_theme(style="whitegrid")
+
+        data_light_counts2 = pd.DataFrame(data_light_counts,
+                                          columns=["Light_Cat", "Status",
+                                                   "Count"])
+        g = sns.catplot(
+            data=data_light_counts2, kind="bar",
+            x="Light_Cat", y="Count", hue="Status",
+            errorbar="sd", palette="pink", alpha=.6, height=6
+        )
+        g.despine(left=True)
+        g.set_axis_labels("Light level", "Count")
+        plt.subplots_adjust(top=0.9) # leave space for the title
+        g.fig.suptitle("Bar Chart: light level vs status")
+
+        for p in g.ax.patches:
+            g.ax.annotate(f'{p.get_height():.0f}',
+                          (p.get_x() + p.get_width() / 2., p.get_height()),
+                          ha='center', va='center', xytext=(0, 10),
+                          textcoords='offset points')
         plot.show()
