@@ -1,4 +1,3 @@
-
 import pandas as pd
 import matplotlib.pyplot as plot
 import warnings
@@ -9,7 +8,8 @@ import polars as pl
 # Ignore all warnings
 warnings.filterwarnings("ignore")
 
-df = pd.read_csv('../example/Tree_Data.csv')
+data = pd.read_csv('../example/Tree_Data.csv')
+
 
 # visualisation
 def bar_plot(df, type):
@@ -23,7 +23,7 @@ def bar_plot(df, type):
         df['Alive'] = df['Alive'].replace('X', 1)
 
         df_subset = df[['Species', 'Alive', 'Event']]
-        df_subset = df_subset.rename(columns = {'Event': 'Dead'})
+        df_subset = df_subset.rename(columns={'Event': 'Dead'})
 
         by_species_df = df_subset.groupby('Species').sum()
 
@@ -51,7 +51,7 @@ def bar_plot(df, type):
         )
         g.despine(left=True)
         g.set_axis_labels("Species", "Count")
-        plt.subplots_adjust(top=0.9)  #leave space for the title
+        plot.subplots_adjust(top=0.9)  # leave space for the title
         g.fig.suptitle("Bar Chart: Species vs Status")
 
         for p in g.ax.patches:
@@ -111,7 +111,7 @@ def bar_plot(df, type):
         )
         g.despine(left=True)
         g.set_axis_labels("Light level", "Count")
-        plt.subplots_adjust(top=0.9) # leave space for the title
+        plot.subplots_adjust(top=0.9)  # leave space for the title
         g.fig.suptitle("Bar Chart: light level vs status")
 
         for p in g.ax.patches:
@@ -120,3 +120,27 @@ def bar_plot(df, type):
                           ha='center', va='center', xytext=(0, 10),
                           textcoords='offset points')
         plot.show()
+
+
+
+def scatter_plot(df, column_x, column_y, hue_column, title):
+    """ This function creates a scatter plot for the specified columns in the DataFrame """
+
+    sns.set_theme(style="whitegrid")
+
+    # Create the scatter plot with hue and style based on the specified column
+    plot.figure(figsize=(10, 6))
+    sns.scatterplot(x=column_x, y=column_y, hue=hue_column, style=hue_column, data=df, palette="viridis", markers=True)
+
+    # Set labels and title
+    plot.xlabel(column_x)
+    plot.ylabel(column_y)
+    plot.title(title)
+
+    # Add legend
+    plot.legend(title=hue_column, bbox_to_anchor=(1.05, 1), loc='upper left')
+
+    # Show the plot
+    plot.show()
+
+
