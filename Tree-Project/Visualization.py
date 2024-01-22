@@ -35,9 +35,9 @@ def bar_plot(df, type):
         species_df = pl.DataFrame(by_species_df)
 
         data_counts = species_df.melt(id_vars="Species",
-                                        value_vars=cs.numeric(),
-                                        variable_name="Status",
-                                        value_name="Count")
+                                      value_vars=cs.numeric(),
+                                      variable_name="Status",
+                                      value_name="Count")
 
         sns.set_theme(style="whitegrid")
 
@@ -74,6 +74,7 @@ def bar_plot(df, type):
         ax.set_ylabel('Count')
         ax.set_title('Count of Species for Each Field')
         plot.legend(title='Species', bbox_to_anchor=(1.05, 1), loc='upper left')
+        plot.tight_layout()  # Adjust layout to make space for the legend
         plot.show()
 
     elif type == "Light level vs status":
@@ -119,14 +120,21 @@ def bar_plot(df, type):
                           (p.get_x() + p.get_width() / 2., p.get_height()),
                           ha='center', va='center', xytext=(0, 10),
                           textcoords='offset points')
-        plot.show()
 
+        plot.show()
 
 
 def scatter_plot(df, column_x, column_y, hue_column, title):
     """ This function creates a scatter plot for the specified columns in the DataFrame """
 
     sns.set_theme(style="whitegrid")
+
+    # Input validation
+    if not pd.api.types.is_numeric_dtype(df[column_x]):
+        raise ValueError(f"The column '{column_x}' must contain numerical data.")
+
+    if not pd.api.types.is_numeric_dtype(df[column_y]):
+        raise ValueError(f"The column '{column_y}' must contain numerical data.")
 
     # Create the scatter plot with hue and style based on the specified column
     plot.figure(figsize=(10, 6))
@@ -140,7 +148,11 @@ def scatter_plot(df, column_x, column_y, hue_column, title):
     # Add legend
     plot.legend(title=hue_column, bbox_to_anchor=(1.05, 1), loc='upper left')
 
+    # Adjust layout to make space for the legend
+    plot.tight_layout()
+
     # Show the plot
     plot.show()
 
-
+# bar_plot(data,"Species_vs_field")
+# scatter_plot(data,"Lignin", "Phenolics", "Event","Scatter plot: Lignin vs Phenolics")
