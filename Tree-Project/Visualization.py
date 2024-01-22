@@ -35,9 +35,9 @@ def bar_plot(df, type):
         species_df = pl.DataFrame(by_species_df)
 
         data_counts = species_df.melt(id_vars="Species",
-                                      value_vars=cs.numeric(),
-                                      variable_name="Status",
-                                      value_name="Count")
+                                        value_vars=cs.numeric(),
+                                        variable_name="Status",
+                                        value_name="Count")
 
         sns.set_theme(style="whitegrid")
 
