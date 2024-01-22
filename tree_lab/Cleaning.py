@@ -4,7 +4,6 @@ from IPython.display import display
 
 data = pd.read_csv('../example/Tree_Data.csv')
 
-
 class TreeDataCleaner:
     def __init__(self, data):
         self.data = data
@@ -28,8 +27,7 @@ class TreeDataCleaner:
         display(self.data)
 
 # Example usage:
-tree_cleaner = TreeDataCleaner(data)
-
+#tree_cleaner = TreeDataCleaner(data)
 
 # Process and view datasets for each function
-raw_cleaned = tree_cleaner.cleaned_data()
+#raw_cleaned = tree_cleaner.cleaned_data()
