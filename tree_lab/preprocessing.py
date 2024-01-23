@@ -34,7 +34,7 @@ class DataPreprocessor:
             normalized_data = scaler.fit_transform(numeric_data)
             self.data[numeric_columns] = normalized_data
 
-        return self.data
+            return self.data
 
     def onehot_encode(self, columns, keep_original=True):
 
