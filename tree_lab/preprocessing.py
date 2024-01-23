@@ -60,5 +60,5 @@ class DataPreprocessor:
             return self.data
 
     def display(self):
-        print("Test")
+
         return self.data
