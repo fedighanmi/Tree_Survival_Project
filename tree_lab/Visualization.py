@@ -10,8 +10,50 @@ warnings.filterwarnings("ignore")
 
 data = pd.read_csv('../example/Tree_Data.csv')
 
-
 # visualisation
+def summarize(df, col, type = "Frequency and Relative frequency", dec = 2):
+    """ This function summarizes the columns of the dataset using
+     frequency tables. It takes in input:
+     - df  the dataframe
+     - col a list containing the names of the columns to be summarized
+     - type a string specifying which kind of frequency we want to see.
+            It is set = "Frequency and Relative frequency" by default, but it
+            can take in input also "Frequency" or "Relative frequency"
+     - dec a natural number specifying how many decimals should be kept
+           for the relative frequency values. It is set = 2 by default"""
+
+    # Create frequency tables for each specified column
+    frequency_tables = {}
+    for column_name in col:
+
+        value_counts = df[column_name].value_counts()
+        percentages = ((value_counts / len(df)) * 100).round(dec)
+
+        if type == "Frequency":
+            frequency_table_df = pd.DataFrame({'Frequency': value_counts})
+            frequency_table_df.reset_index(inplace=True)
+            frequency_table_df.columns = [column_name, 'Frequency']
+        elif type == "Relative frequency":
+            frequency_table_df = pd.DataFrame(
+                {'Relative frequency': percentages})
+            frequency_table_df.reset_index(inplace=True)
+            frequency_table_df.columns = [column_name, 'Relative frequency']
+        elif type == "Frequency and Relative frequency":
+            frequency_table_df = pd.DataFrame(
+                {'Frequency': value_counts, 'Relative frequency': percentages})
+            frequency_table_df.reset_index(inplace=True)
+            frequency_table_df.columns = [column_name, 'Frequency',
+                                          'Relative frequency']
+
+        frequency_tables[column_name] = frequency_table_df
+
+    # Display the frequency tables
+    for column_name, frequency_table_df in frequency_tables.items():
+        print(f"\nSummary for {column_name}:\n")
+        print(frequency_table_df)
+
+# summarize(df = data, col = ['Species', 'Subplot', 'Event'])
+
 def bar_plot(df, type):
     """ This function gives barplots in output. The kind of barplot is choosen
       by the use through the input parameter type """
