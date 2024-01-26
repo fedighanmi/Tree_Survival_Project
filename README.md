@@ -8,3 +8,9 @@ The goal of this project is to provide a user-friendly functions for basic datas
 
 ### Installation
 
+**Note: This package is not yet published. You can fork it and install it locally.**
+
+```bash
+git clone https://github.com/fedighanmi/Tree_Survival_Project.git
+cd Tree_Survival_Project
+pip install -e .
