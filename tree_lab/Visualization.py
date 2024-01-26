@@ -59,6 +59,8 @@ def bar_plot(df, type):
       by the use through the input parameter type """
 
     if type == "Species_vs_Status":
+
+        # to be deleted
         df.dropna(subset=['Event'], inplace=True)
         df = df.fillna(0)
 
@@ -66,6 +68,8 @@ def bar_plot(df, type):
 
         df_subset = df[['Species', 'Alive', 'Event']]
         df_subset = df_subset.rename(columns={'Event': 'Dead'})
+
+        # till here to be deleted
 
         by_species_df = df_subset.groupby('Species').sum()
 
@@ -121,10 +125,13 @@ def bar_plot(df, type):
 
     elif type == "Light level vs status":
 
+        #to be deleted
+
         df.dropna(subset=['Event'], inplace=True)
         df = df.fillna(0)
 
         df['Alive'] = df['Alive'].replace('X', 1)
+        # to be deleted till here
 
         df_sublight = df[['Light_Cat', 'Alive', 'Event']]
         df_sublight = df_sublight.rename(columns={'Event': 'Dead'})
@@ -198,3 +205,30 @@ def scatter_plot(df, column_x, column_y, hue_column, title):
 
 # bar_plot(data,"Species_vs_field")
 # scatter_plot(data,"Lignin", "Phenolics", "Event","Scatter plot: Lignin vs Phenolics")
+
+    def process_light_level_data(self):
+
+        # Ensure 'Alive' column is present in the light_df DataFrame
+        if 'Alive' not in light_df.columns:
+            light_df['Alive'] = 0
+
+        if 'Dead' not in light_df.columns:
+            light_df['Dead'] = 1
+
+        # Convert Polars DataFrame to Pandas DataFrame
+        light_pandas_df = light_df.to_pandas()
+
+        data_light_counts = light_pandas_df.melt(id_vars="Light_Cat",
+                                                 value_vars=["Alive"],
+                                                 var_name="Status",
+                                                 value_name="Count")
+
+        # Display the processed dataset
+        display(data_light_counts)
+
+        return data_light_counts
+
+        # Display the processed dataset
+        display(data_light_counts)
+
+        return data_light_counts
