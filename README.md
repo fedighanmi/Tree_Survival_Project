@@ -14,3 +14,10 @@ The goal of this project is to provide a user-friendly functions for basic datas
 git clone https://github.com/fedighanmi/Tree_Survival_Project.git
 cd Tree_Survival_Project
 pip install -e .
+```
+All required packages will be automatically installed during the installation of the tree_lab package.
+
+## Usage
+
+After installing, you can import it in your python file or jupyter notebook. There is an example notebook in this repoitory that you can use as a guideline of what you can do or follow more in this
+documentation.
