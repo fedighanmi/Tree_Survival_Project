@@ -1,6 +1,4 @@
 import pandas as pd
-import polars as pl
-from IPython.display import display
 
 data = pd.read_csv('../example/Tree_Data.csv')
 
@@ -10,9 +8,6 @@ class TreeDataCleaner:
         self.data = data
 
     def detect_na(self):
-        # Handle missing values in the 'EMF' column by filling with the mean
-        #
-
         # Check for any null values in the dataset
         null_values_check = self.data.isnull().any()
 
@@ -24,8 +19,6 @@ class TreeDataCleaner:
         # Remove duplicate rows in the dataset
         self.data = self.data.drop_duplicates()
 
-        # Display the cleaned dataset
-
     def impute_na(self):
         self.data['EMF'].fillna(self.data['EMF'].mean(), inplace=True)
         self.data = self.data.fillna(0)
@@ -36,11 +29,21 @@ class TreeDataCleaner:
 
         return self.data
 
-# Example usage:
-#tree_cleaner = TreeDataCleaner(data)
+    def input_values(self, columns_to_delete):
+        """
+        Function to allow users to delete specified columns.
 
-# Process and view datasets for each function
-#raw_cleaned = tree_cleaner.cleaned_data()
-# species_data = tree_cleaner.process_species_data()
-# field_data = tree_cleaner.process_field_data()
-# light_level_data = tree_cleaner.process_light_level_data()
+        Parameters:
+        - columns_to_delete: A list of column names to be deleted.
+
+        Example:
+        cleaner.input_values(['Age', 'Height'])
+        """
+        for column_name in columns_to_delete:
+            if column_name in self.data.columns:
+                del self.data[column_name]
+            else:
+                print(f"Column '{column_name}' not found in the dataset.")
+
+        return self.data
+
