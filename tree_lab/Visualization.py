@@ -10,17 +10,34 @@ warnings.filterwarnings("ignore")
 
 data = pd.read_csv('../example/Tree_Data.csv')
 
+
 # visualisation
-def summarize(df, col, type = "Frequency and Relative frequency", dec = 2):
-    """ This function summarizes the columns of the dataset using
-     frequency tables. It takes in input:
-     - df  the dataframe
-     - col a list containing the names of the columns to be summarized
-     - type a string specifying which kind of frequency we want to see.
-            It is set = "Frequency and Relative frequency" by default, but it
-            can take in input also "Frequency" or "Relative frequency"
-     - dec a natural number specifying how many decimals should be kept
-           for the relative frequency values. It is set = 2 by default"""
+def summarize(df, col, kind="Frequency and Relative frequency", dec=2):
+    """
+    Generates bar plots based on the specified kind.
+
+    Parameters:
+    - df (pd.DataFrame): The input dataframe.
+    - kind (str): Specifies the type of bar plot to generate.
+      It can take values "Species_vs_Status", "Species_vs_field", or "Light level vs status".
+
+    Returns:
+    None
+
+    Raises:
+    ValueError: If the provided 'kind' is not one of the specified options.
+
+    Notes:
+    - For "Species_vs_Status", the function generates a bar plot showing the count of alive and dead
+    instances for each species.
+    - For "Species_vs_field", the function creates a stacked bar chart representing the count of each
+    species in different fields.
+    - For "Light level vs status", a bar plot is generated to display the count of alive and dead
+    instances for each light level category.
+
+    The function utilizes seaborn and matplotlib for visualization, and the plots are displayed using
+    the 'plot.show()' method.
+    """
 
     # Create frequency tables for each specified column
     frequency_tables = {}
@@ -29,21 +46,24 @@ def summarize(df, col, type = "Frequency and Relative frequency", dec = 2):
         value_counts = df[column_name].value_counts()
         percentages = ((value_counts / len(df)) * 100).round(dec)
 
-        if type == "Frequency":
+        if kind == "Frequency":
             frequency_table_df = pd.DataFrame({'Frequency': value_counts})
             frequency_table_df.reset_index(inplace=True)
             frequency_table_df.columns = [column_name, 'Frequency']
-        elif type == "Relative frequency":
+        elif kind == "Relative frequency":
             frequency_table_df = pd.DataFrame(
                 {'Relative frequency': percentages})
             frequency_table_df.reset_index(inplace=True)
             frequency_table_df.columns = [column_name, 'Relative frequency']
-        elif type == "Frequency and Relative frequency":
+        elif kind == "Frequency and Relative frequency":
             frequency_table_df = pd.DataFrame(
                 {'Frequency': value_counts, 'Relative frequency': percentages})
             frequency_table_df.reset_index(inplace=True)
             frequency_table_df.columns = [column_name, 'Frequency',
                                           'Relative frequency']
+        else:
+            frequency_table_df = None
+            print("Something went wrong!")
 
         frequency_tables[column_name] = frequency_table_df
 
@@ -52,25 +72,23 @@ def summarize(df, col, type = "Frequency and Relative frequency", dec = 2):
         print(f"\nSummary for {column_name}:\n")
         print(frequency_table_df)
 
-# summarize(df = data, col = ['Species', 'Subplot', 'Event'])
 
-def bar_plot(df, type):
-    """ This function gives barplots in output. The kind of barplot is choosen
-      by the use through the input parameter type """
+def bar_plot(df, kind):
+    """
+    Generate different types of bar charts based on the specified kind parameter.
 
-    if type == "Species_vs_Status":
+    Parameters:
+    - df (pandas DataFrame): Input DataFrame containing relevant data.
+    - kind (str): Type of bar chart to generate. Options: "Species_vs_Status", "Species_vs_field",
+    "Light level vs status".
 
-        # to be deleted
-        df.dropna(subset=['Event'], inplace=True)
-        df = df.fillna(0)
+    Returns:
+    The plots are displayed using the 'plot.show()' method.
+    """
 
-        df['Alive'] = df['Alive'].replace('X', 1)
+    if kind == "Species_vs_Status":
 
-        df_subset = df[['Species', 'Alive', 'Event']]
-        df_subset = df_subset.rename(columns={'Event': 'Dead'})
-
-        # till here to be deleted
-
+        df_subset = df[['Species', 'Alive', 'Dead']]
         by_species_df = df_subset.groupby('Species').sum()
 
         # Create and add a new column containing the species names
@@ -107,7 +125,7 @@ def bar_plot(df, type):
                           textcoords='offset points')
         plot.show()
 
-    elif type == "Species_vs_field":
+    elif kind == "Species_vs_field":
 
         df_subset = df[['Species', 'Plot']]
         contingency_table = pd.crosstab(df_subset['Plot'], df_subset['Species'])
@@ -123,19 +141,9 @@ def bar_plot(df, type):
         plot.tight_layout()  # Adjust layout to make space for the legend
         plot.show()
 
-    elif type == "Light level vs status":
+    elif kind == "Light level vs status":
 
-        #to be deleted
-
-        df.dropna(subset=['Event'], inplace=True)
-        df = df.fillna(0)
-
-        df['Alive'] = df['Alive'].replace('X', 1)
-        # to be deleted till here
-
-        df_sublight = df[['Light_Cat', 'Alive', 'Event']]
-        df_sublight = df_sublight.rename(columns={'Event': 'Dead'})
-
+        df_sublight = df[['Light_Cat', 'Alive', 'Dead']]
         by_light_df = df_sublight.groupby('Light_Cat').sum()
 
         light_cat = ["High", "Low", "Med"]
@@ -202,9 +210,6 @@ def scatter_plot(df, column_x, column_y, hue_column, title):
 
     # Show the plot
     plot.show()
-
-# bar_plot(data,"Species_vs_field")
-# scatter_plot(data,"Lignin", "Phenolics", "Event","Scatter plot: Lignin vs Phenolics")
 
     def process_light_level_data(self):
 
