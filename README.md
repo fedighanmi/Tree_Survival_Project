@@ -24,3 +24,6 @@ After installing, you can import it in your python file or jupyter notebook. The
 ## Requirements
 To use our package, you need to have Python 3.8 and above in your machine.
 
+## License
+
+This project is licensed under the [GNU General Public License v3.0](LICENSE).
