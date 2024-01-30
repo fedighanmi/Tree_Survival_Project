@@ -67,7 +67,6 @@ class TreeDataCleaner:
 
     def display(self):
         """
-        Returns the current state of the data.
 
         Returns:
         pandas.DataFrame: The current state of the data.
