@@ -65,7 +65,6 @@ class TreeDataCleaner:
             else:
                 print(f"Column '{column_name}' either already deleted or not found in the dataset.")
 
-
     def display(self):
         """
         Returns the current state of the data.
