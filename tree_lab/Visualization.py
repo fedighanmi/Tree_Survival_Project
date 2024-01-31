@@ -238,30 +238,3 @@ def scatter_plot(df, column_x, column_y, hue_column, title):
 
     # Show the plot
     plot.show()
-
-    def process_light_level_data(self):
-
-        # Ensure 'Alive' column is present in the light_df DataFrame
-        if 'Alive' not in light_df.columns:
-            light_df['Alive'] = 0
-
-        if 'Dead' not in light_df.columns:
-            light_df['Dead'] = 1
-
-        # Convert Polars DataFrame to Pandas DataFrame
-        light_pandas_df = light_df.to_pandas()
-
-        data_light_counts = light_pandas_df.melt(id_vars="Light_Cat",
-                                                 value_vars=["Alive"],
-                                                 var_name="Status",
-                                                 value_name="Count")
-
-        # Display the processed dataset
-        display(data_light_counts)
-
-        return data_light_counts
-
-        # Display the processed dataset
-        display(data_light_counts)
-
-        return data_light_counts
