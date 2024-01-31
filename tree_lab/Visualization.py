@@ -14,29 +14,17 @@ data = pd.read_csv('../example/Tree_Data.csv')
 # visualisation
 def summarize(df, col, kind="Frequency and Relative frequency", dec=2):
     """
-    Generates bar plots based on the specified kind.
+    Summarizes the columns selected from the dataframe by showingh the
+    frequency and/or relative frequency of the categories
 
-    Parameters:
-    - df (pd.DataFrame): The input dataframe.
-    - kind (str): Specifies the type of bar plot to generate.
-      It can take values "Species_vs_Status", "Species_vs_field", or "Light level vs status".
+    Parameter:
+    - df: a pandas dataframe
+    - col: the columns of the dataframe that the user wants to summarize
+    - kind: a string speficying if the frequency and/or the relative frequencies
+      should be displayed. The default is "Frequency and Relative frequency",
+      but it is also possible to choose "Frequency", or "Relative frequency"
 
-    Returns:
-    None
-
-    Raises:
-    ValueError: If the provided 'kind' is not one of the specified options.
-
-    Notes:
-    - For "Species_vs_Status", the function generates a bar plot showing the count of alive and dead
-    instances for each species.
-    - For "Species_vs_field", the function creates a stacked bar chart representing the count of each
-    species in different fields.
-    - For "Light level vs status", a bar plot is generated to display the count of alive and dead
-    instances for each light level category.
-
-    The function utilizes seaborn and matplotlib for visualization, and the plots are displayed using
-    the 'plot.show()' method.
+    Returns the frequency tables for the selected columns
     """
 
     # Create frequency tables for each specified column
@@ -72,6 +60,35 @@ def summarize(df, col, kind="Frequency and Relative frequency", dec=2):
         print(f"\nSummary for {column_name}:\n")
         print(frequency_table_df)
 
+def compute_stats(dataframe, selected_columns):
+    """
+    Computes mean, standard deviation, minimum, maximum and median for the
+    specified columns
+
+    Parameters:
+        - dataframe: the dataframe
+        - selected_columns: list containing the columns for which we wish
+          to have the statistics
+
+    Returns a dataframe containing the statistics of the columns specified in input
+    """
+    valid_columns = ['Light_ISF', 'AMF', 'EMF', 'Phenolics', 'Lignin', 'NSC']
+
+    for column in selected_columns:
+        if column not in valid_columns:
+            print(f"Error: '{column}' is not one of the specified columns.")
+            return
+
+    results = pd.DataFrame({
+        'Mean': dataframe[selected_columns].mean(),
+        'Standard Deviation': dataframe[selected_columns].std(),
+        'Minimum': dataframe[selected_columns].min(),
+        'Maximum': dataframe[selected_columns].max(),
+        'Median': dataframe[selected_columns].median()
+    })
+
+    return results
+
 
 def bar_plot(df, kind):
     """
@@ -79,11 +96,21 @@ def bar_plot(df, kind):
 
     Parameters:
     - df (pandas DataFrame): Input DataFrame containing relevant data.
-    - kind (str): Type of bar chart to generate. Options: "Species_vs_Status", "Species_vs_field",
-    "Light level vs status".
+    - kind (str): Type of bar chart to generate. Options: "Species_vs_Status",
+    "Species_vs_field", "Light level vs status".
 
     Returns:
     The plots are displayed using the 'plot.show()' method.
+
+    Notes:
+    - For "Species_vs_Status", the function generates a bar plot showing
+    the count of alive and dead instances for each species.
+    - For "Species_vs_field", the function creates a stacked bar chart
+    representing the count of each species in different fields.
+    - For "Light level vs status", a bar plot is generated to display
+    the count of alive and dead instances for each light level category.
+
+    The function utilizes seaborn and matplotlib for visualization
     """
 
     if kind == "Species_vs_Status":
@@ -195,7 +222,8 @@ def scatter_plot(df, column_x, column_y, hue_column, title):
 
     # Create the scatter plot with hue and style based on the specified column
     plot.figure(figsize=(10, 6))
-    sns.scatterplot(x=column_x, y=column_y, hue=hue_column, style=hue_column, data=df, palette="viridis", markers=True)
+    sns.scatterplot(x=column_x, y=column_y, hue=hue_column, style=hue_column,
+                    data=df, palette="viridis", markers=True)
 
     # Set labels and title
     plot.xlabel(column_x)
