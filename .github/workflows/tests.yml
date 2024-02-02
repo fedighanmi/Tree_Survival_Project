@@ -1,0 +1,48 @@
+name: Tests
+
+# The workflow is triggered on both pull requests and pushes to the repository.
+on:
+  - pull_request
+  - push
+
+jobs:
+
+  # The test job is defined, and specifies that it should run on
+  # different operating systems
+  # (ubuntu-latest and windows-latest) based on the matrix.os configuration.
+  test:
+    runs-on: ${{ matrix.os }}
+
+    # The strategy section defines a matrix that includes combinations of
+    # operating systems and Python versions.
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ['3.11.7', '3.12.0']
+
+    steps:
+    # The steps section begins with checking out the repository using the
+    # actions/checkout action.
+    - uses: actions/checkout@v2
+
+    # It then sets up the Python environment using the actions/
+    # setup-python action,
+    # specifying the Python version from the matrix.
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    # This step installs dependencies using the specified Python version.
+    # It upgrades pip and installs tox and tox-gh-actions
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install tox tox-gh-actions
+
+    # The final step runs the tox command, which is a testing tool commonly
+    # used in Python projects.
+    # The tox configuration file (tox.ini) in your project specifies
+    # how the tests should be executed.
+    - name: Test with tox
+      run: tox
