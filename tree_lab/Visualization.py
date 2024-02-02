@@ -14,13 +14,13 @@ data = pd.read_csv('../example/Tree_Data.csv')
 # visualisation
 def summarize(df, col, kind="Frequency and Relative frequency", dec=2):
     """
-    Summarizes the columns selected from the dataframe by showingh the
+    Summarizes the columns selected from the dataframe by showing the
     frequency and/or relative frequency of the categories
 
     Parameter:
     - df: a pandas dataframe
     - col: the columns of the dataframe that the user wants to summarize
-    - kind: a string speficying if the frequency and/or the relative frequencies
+    - kind: a string specifying if the frequency and/or the relative frequencies
       should be displayed. The default is "Frequency and Relative frequency",
       but it is also possible to choose "Frequency", or "Relative frequency"
 
