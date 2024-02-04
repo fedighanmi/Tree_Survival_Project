@@ -25,7 +25,11 @@ jobs:
     # actions/checkout action.
     - uses: actions/checkout@v2
 
-    # It then sets up the Python environment using the actions/
+    - name: Set Environment Variable
+      run: echo "SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True" >> $GITHUB_ENV
+
+
+      # It then sets up the Python environment using the actions/
     # setup-python action,
     # specifying the Python version from the matrix.
     - name: Set up Python ${{ matrix.python-version }}
