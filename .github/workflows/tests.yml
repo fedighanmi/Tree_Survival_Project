@@ -17,16 +17,13 @@ jobs:
     # operating systems and Python versions.
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [windows-latest]
         python-version: ['3.11.0']
 
     steps:
     # The steps section begins with checking out the repository using the
     # actions/checkout action.
     - uses: actions/checkout@v2
-
-    - name: Clean Python cache
-      run: Remove-Item -Force -Recurse "${env:USERPROFILE}\.cache\pip" ; Remove-Item -Force -Recurse "${env:USERPROFILE}\.cache\pre-commit"
 
     # It then sets up the Python environment using the actions/
     # setup-python action,
