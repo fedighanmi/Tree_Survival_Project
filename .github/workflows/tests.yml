@@ -25,9 +25,6 @@ jobs:
     # actions/checkout action.
     - uses: actions/checkout@v2
 
-    - name: Set Environment Variable
-      run: echo "SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True" >> $GITHUB_ENV
-
 
       # It then sets up the Python environment using the actions/
     # setup-python action,
