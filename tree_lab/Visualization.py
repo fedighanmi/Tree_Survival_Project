@@ -60,6 +60,7 @@ def summarize(df, col, kind="Frequency and Relative frequency", dec=2):
         print(f"\nSummary for {column_name}:\n")
         print(frequency_table_df)
 
+
 def compute_stats(dataframe, selected_columns):
     """
     Computes mean, standard deviation, minimum, maximum and median for the
