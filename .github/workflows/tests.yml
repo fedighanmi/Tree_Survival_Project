@@ -9,8 +9,6 @@ env:
   ACTIONS_STEP_DEBUG: true
 
 jobs:
-  name: Clean Environment
-  run: python setup.py clean --all
 
   # The test job is defined, and specifies that it should run on
   # different operating systems
@@ -26,6 +24,8 @@ jobs:
         python-version: ['3.11.0']
 
     steps:
+    - name: Clean Environment
+      run: python setup.py clean --all
     # The steps section begins with checking out the repository using the
     # actions/checkout action.
     - uses: actions/checkout@v2
