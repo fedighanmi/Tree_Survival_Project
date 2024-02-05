@@ -9,6 +9,8 @@ env:
   ACTIONS_STEP_DEBUG: true
 
 jobs:
+  name: Clean Environment
+  run: python setup.py clean --all
 
   # The test job is defined, and specifies that it should run on
   # different operating systems
