@@ -7,7 +7,6 @@ df = pd.read_csv("../example/Tree_Data.csv")
 data_prep = prp.DataPreprocessor(df)
 
 
-
 def min_max_normalization(column):
     # Find the minimum and maximum values in the column
     min_val = min(column)
