@@ -1,7 +1,6 @@
 import pytest
 
-def test_normalize():
-    pass
+
 
 """
 import pandas as pd

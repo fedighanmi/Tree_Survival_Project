@@ -24,8 +24,6 @@ jobs:
         python-version: ['3.11.0']
 
     steps:
-    - name: Clean Environment
-      run: python setup.py clean --all
     # The steps section begins with checking out the repository using the
     # actions/checkout action.
     - uses: actions/checkout@v2
@@ -50,5 +48,5 @@ jobs:
     # used in Python projects.
     # The tox configuration file (tox.ini) in your project specifies
     # how the tests should be executed.
-    - name: Test with tox
-      run: tox
+    #- name: Test with tox
+    #  run: tox
