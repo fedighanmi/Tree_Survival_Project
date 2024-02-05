@@ -17,7 +17,6 @@ dependencies = ["matplotlib>=3.5.1",
                 "polars >=0.19.19",
                 "ipython~=8.17.2",
                 "pytest-cov >= 2.10.0",
-                "pytest >= 7.1.2",
                 "pathlib>=1.0"]
 
 [project.optional-dependencies]
