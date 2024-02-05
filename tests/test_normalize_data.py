@@ -1,8 +1,4 @@
 import pytest
-
-
-
-"""
 import pandas as pd
 from tree_lab import preprocessing as prp
 
@@ -27,4 +23,4 @@ def min_max_normalization(column):
 def test_minmax(col):
     assert min_max_normalization(df[col]).all() == pytest.approx(
         data_prep.normalize_data([col], "mixmax")[col].all(), abs=1e-4)
-"""
+
