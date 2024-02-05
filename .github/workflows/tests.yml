@@ -5,6 +5,9 @@ on:
   - pull_request
   - push
 
+env:
+  ACTIONS_STEP_DEBUG: true
+
 jobs:
 
   # The test job is defined, and specifies that it should run on
