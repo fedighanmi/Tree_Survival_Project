@@ -1,9 +1,9 @@
 import pytest
 import pandas as pd
 from tree_lab import preprocessing as prp
+from tree_lab import importing as imp
 
-
-df = pd.read_csv("../example/Tree_Data.csv")
+df = imp.import_data()
 data_prep = prp.DataPreprocessor(df)
 
 
