@@ -49,4 +49,4 @@ jobs:
     # The tox configuration file (tox.ini) in your project specifies
     # how the tests should be executed.
     - name: Test with tox
-      run: tox -v
+      run: tox
