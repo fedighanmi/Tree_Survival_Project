@@ -3,12 +3,10 @@ import pandas as pd
 from tree_lab import preprocessing as prp
 from tree_lab import importing as imp
 
-"""
+
 df = imp.import_data()
-"""
-data = {'A': [0, 5, 10]}
-df = pd.DataFrame(data)
 data_prep = prp.DataPreprocessor(df)
+
 
 def min_max_normalization(column):
     # Find the minimum and maximum values in the column
@@ -21,14 +19,8 @@ def min_max_normalization(column):
     return norm_col
 
 
-@pytest.mark.parametrize("col", ["A"])
-def test_minmax(col):
-    assert min_max_normalization(df[col]).all() == pytest.approx(
-        data_prep.normalize_data([col], "mixmax")[col].all(), abs=1e-4)
-
-"""
 @pytest.mark.parametrize("col", ["Lignin", "Light_ISF", "AMF", "NSC"])
 def test_minmax(col):
     assert min_max_normalization(df[col]).all() == pytest.approx(
         data_prep.normalize_data([col], "mixmax")[col].all(), abs=1e-4)
-"""
+
