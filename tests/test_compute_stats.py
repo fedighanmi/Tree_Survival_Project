@@ -4,12 +4,15 @@ import numpy as np
 from tree_lab import Visualization as vis
 from tree_lab import importing as imp
 
-
 df = imp.import_data()
 
-def test_compute_stats(numbers):
-    if len(numbers) == 0:
+def statistics_col(col_values):
+    if len(col_values) == 0:
         return None  # Return None for an empty list
+
+    # Remove NaN values from the input vector
+    numbers = col_values[~np.isnan(col_values)]
+
 
     # compute the mean
     total_sum = 0
@@ -22,9 +25,7 @@ def test_compute_stats(numbers):
     stand_dev = math.sqrt(variance)
 
     # compute the minimum and the maximum
-    min_value = max_value = numbers[
-        0]  # Assume the first element is both min and max
-
+    min_value = max_value = numbers[0]  # Assume the first element is both min and max
     for num in numbers[1:]:
         if num < min_value:
             min_value = num
@@ -34,10 +35,8 @@ def test_compute_stats(numbers):
     # compute the median
     sorted_numbers = sorted(numbers)
     n = len(sorted_numbers)
-
     if n % 2 == 0:
-        # If the number of elements is even, take the average
-        # of the middle two elements
+        # If the number of elements is even, take the average of the middle two elements
         mid_left = sorted_numbers[n // 2 - 1]
         mid_right = sorted_numbers[n // 2]
         median = (mid_left + mid_right) / 2
@@ -47,10 +46,8 @@ def test_compute_stats(numbers):
 
     return np.array([mean, stand_dev, min_value, max_value, median])
 
-@pytest.mark.parametrize("col", ['Light_ISF', 'AMF',
-                                 'EMF', 'Phenolics', 'Lignin', 'NSC'])
-def testing_compute_stats(col):
-    assert test_compute_stats(numbers = df[col].values).all() == pytest.approx(
-        vis.compute_stats(dataframe = df,
-                      selected_columns = [col]).iloc[0].values.all(),
+@pytest.mark.parametrize("col", ['Light_ISF', 'AMF', 'EMF', 'Phenolics', 'Lignin', 'NSC'])
+def test_testing_compute_stats(col):
+    assert statistics_col(col_values=df[col].values).all() == pytest.approx(
+        vis.compute_stats(dataframe=df, selected_columns=[col]).iloc[0].values.all(),
         abs=1e-4)
