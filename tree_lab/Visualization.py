@@ -4,11 +4,12 @@ import warnings
 import polars.selectors as cs
 import seaborn as sns
 import polars as pl
+from tree_lab import importing as imp
 
 # Ignore all warnings
 warnings.filterwarnings("ignore")
 
-data = pd.read_csv('../example/Tree_Data.csv')
+data = imp.import_data()
 
 
 # visualisation

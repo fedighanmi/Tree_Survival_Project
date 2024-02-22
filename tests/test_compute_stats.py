@@ -1,5 +1,6 @@
 import pytest
 import math
+import pandas as pd
 import numpy as np
 from tree_lab import Visualization as vis
 from tree_lab import importing as imp
@@ -53,6 +54,5 @@ def compute_stats_t(numbers):
                                  'EMF', 'Phenolics', 'Lignin', 'NSC'])
 def testing_compute_stats(col):
     assert compute_stats_t(numbers = df[col].values).all() == pytest.approx(
-        vis.compute_stats(dataframe = df,
-                      selected_columns = [col]).iloc[0].values.all(),
+        vis.compute_stats(dataframe = df, selected_columns = [col]).iloc[0].values.all(),
         abs=1e-4)
