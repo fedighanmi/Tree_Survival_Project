@@ -7,7 +7,9 @@ from tree_lab import importing as imp
 
 df = imp.import_data()
 
-def test_compute_stats(numbers):
+def compute_stats_t(numbers):
+    numbers = [num for num in numbers if not math.isnan(num)]
+
     if len(numbers) == 0:
         return None  # Return None for an empty list
 
@@ -50,7 +52,7 @@ def test_compute_stats(numbers):
 @pytest.mark.parametrize("col", ['Light_ISF', 'AMF',
                                  'EMF', 'Phenolics', 'Lignin', 'NSC'])
 def testing_compute_stats(col):
-    assert test_compute_stats(numbers = df[col].values).all() == pytest.approx(
+    assert compute_stats_t(numbers = df[col].values).all() == pytest.approx(
         vis.compute_stats(dataframe = df,
                       selected_columns = [col]).iloc[0].values.all(),
         abs=1e-4)
