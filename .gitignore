@@ -21,5 +21,4 @@
 .env
 
 tree_lab.egg-info/*
-
 **/.ipynb_checkpoints/
