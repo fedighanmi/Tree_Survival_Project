@@ -19,3 +19,5 @@
 
 # Ignore sensitive or environment-specific files
 .env
+
+tree_lab.egg-info/*
