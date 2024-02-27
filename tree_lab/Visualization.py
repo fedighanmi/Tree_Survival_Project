@@ -240,3 +240,4 @@ def scatter_plot(df, column_x, column_y, hue_column, title):
 
     # Show the plot
     plot.show()
+
