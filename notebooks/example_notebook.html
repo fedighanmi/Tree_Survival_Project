@@ -1,0 +1,1301 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Example Notebook to the ‘tree_lab’ Package &#8212; Tree Survival Project</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/example_notebook';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="tree_lab package" href="../tree_lab.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Tree Survival Project</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tree_lab.html">tree_lab package</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Example</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/example_notebook.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><span style="color:green"> <center> Example Notebook to the ‘tree_lab’ Package </center> </span></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction"><span style="color:green"> Introduction </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives"><span style="color:green"> Objectives </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background"><span style="color:green"> Background </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-data"><span style="color:green"> About The Data </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-get-started"><span style="color:green"> Let’s Get Started! </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-a-fundamental-step"><span style="color:green"> Data Cleaning: A Fundamental Step </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-for-further-development"><span style="color:green"> Preprocessing for Further Development </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-at-last"><span style="color:green">  Visualization at last! </span></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="example-notebook-to-the-tree-lab-package">
+<h1><span style="color:green"> <center> Example Notebook to the ‘tree_lab’ Package </center> </span><a class="headerlink" href="#example-notebook-to-the-tree-lab-package" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2><span style="color:green"> Introduction </span><a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>Welcome to this Jupyter Notebook! This notebook is designed to provide easy and intuitive dataset analysis to the users with less of a need of extensive technical expertise. It will provide example codes to showcase how our package may be used in relation to the specific dataset that we will mention below.</p>
+</section>
+<section id="objectives">
+<h2><span style="color:green"> Objectives </span><a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
+<p>This notebook will guide you through the usage of three core modules within our package:</p>
+<ul class="simple">
+<li><p>Data Cleaning</p></li>
+<li><p>Data Preprocessing</p></li>
+<li><p>Data Visualization</p></li>
+</ul>
+</section>
+<section id="background">
+<h2><span style="color:green"> Background </span><a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
+<p>Only basic knowledge in python and data analysis is required in order to understand the concepts mentionned. That is it!</p>
+</section>
+<section id="about-the-data">
+<h2><span style="color:green"> About The Data </span><a class="headerlink" href="#about-the-data" title="Permalink to this heading">#</a></h2>
+<p><span style="color:red"> <strong>Attention</strong> </span>: The following information is provided by the authors of the experiment and not by us! If you use this dataset in your research, please credit the original authors.
+https://doi.org/10.5061/dryad.xd2547dpw</p>
+<p>We conducted a factorial blocked design field experiment, consisting of four tree species, seven soil sources (sterilized conspecific, live conspecific, and five heterospecific), and a gradient of forest understory light levels (low, medium, and high). We monitored seedling survival twice per week over one growing season, and we randomly selected subsets of seedlings to measure mycorrhizal colonization and phenolics, lignin, and NSC measurements at three weeks. We used Cox proportional hazards survival models to evaluate survival and linear mixed effects models to test how light availability and soil source influence traits.</p>
+<p>Detailed information about each column follows:</p>
+<ul class="simple">
+<li><p><strong>No</strong>: Seedling unique ID number.</p></li>
+<li><p><strong>Plot</strong>: Number of the field plot the seedling was planted in (1-18).</p></li>
+<li><p><strong>Subplot</strong>: Subplot within the main plot the seedling was planted in. Broken into 5 subplots (1 per corner, plus 1 in the middle) (A-E).</p></li>
+<li><p><strong>Species</strong>: Includes Acer saccharum, Prunus serotina, Quercus alba, and Quercus rubra.</p></li>
+<li><p><strong>Light ISF</strong>: Light level quantified with HemiView software. Represents the amount of light reaching each subplot at a height of 1m.</p></li>
+<li><p><strong>Light Cat</strong>: Categorical light level created by splitting the range of Light_ISF values into three bins (low, med, high).</p></li>
+<li><p><strong>Core</strong>: Year the soil core was removed from the field.</p></li>
+<li><p><strong>Soil</strong>: Species from which the soil core was taken. Includes all species, plus Acer rubrum, Populus grandidentata, and a sterilized conspecific for each species.</p></li>
+<li><p><strong>Adult</strong>: Individual tree that soil was taken from. Up to 6 adults per species. Used as a random effect in analyses.</p></li>
+<li><p><strong>Sterile</strong>: Whether the soil was sterilized or not.</p></li>
+<li><p><strong>Conspecific</strong>: Whether the soil was conspecific, heterospecific, or sterilized conspecific.</p></li>
+<li><p><strong>Myco</strong>: Mycorrhizal type of the seedling species (AMF or EMF).</p></li>
+<li><p><strong>SoilMyco</strong>: Mycorrhizal type of the species culturing the soil (AMF or EMF).</p></li>
+<li><p><strong>PlantDate</strong>: The date that seedlings were planted in the field pots.</p></li>
+<li><p><strong>AMF</strong>: Percent arbuscular mycorrhizal fungi colonization on the fine roots of harvested seedlings.</p></li>
+<li><p><strong>EMF</strong>: Percent ectomycorrhizal fungi colonization on the root tips of harvested seedlings.</p></li>
+<li><p><strong>Phenolics</strong>: Calculated as nmol Gallic acid equivalents per mg dry extract (see manuscript for detailed methods).</p></li>
+<li><p><strong>NSC</strong>: Calculated as percent dry mass nonstructural carbohydrates (see manuscript for detailed methods).</p></li>
+<li><p><strong>Lignin</strong>: Calculated as percent dry mass lignin (see manuscript for detailed methods).</p></li>
+<li><p><strong>Census</strong>: The census number at which time the seedling died or was harvested.</p></li>
+<li><p><strong>Time</strong>: The number of days at which time the seedling died or was harvested.</p></li>
+<li><p><strong>Event</strong>: Used for survival analysis to indicate status of each individual seedling at a given time (above) <br>
+0 = harvested or experiment ended <br>
+1 = dead <br></p></li>
+<li><p><strong>Harvest</strong>: Indicates whether the seedling was harvested for trait measurement.</p></li>
+<li><p><strong>Alive</strong>: Indicates if the seedling was alive at the end of the second growing season. “X” in this field indicates alive status.</p></li>
+<li><p><strong>Missing data is coded as NA.</strong></p></li>
+</ul>
+<p><strong>Acknowledgements:</strong></p>
+<p>All data was collected from single experiment and is presented in the associated manuscript: Wood, Katherine; Kobe, Richard; Ibáñez, Inés; McCarthy-Neumann, Sarah (2023). Tree seedling functional traits mediate plant-soil feedback survival responses across a gradient of light availability.</p>
+</section>
+<section id="let-s-get-started">
+<h2><span style="color:green"> Let’s Get Started! </span><a class="headerlink" href="#let-s-get-started" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We will begin by downloading our tree_lab package, along with the necessary packages to use for this example.</span>
+
+<span class="kn">from</span> <span class="nn">tree_lab</span> <span class="kn">import</span> <span class="n">preprocessing</span> <span class="k">as</span> <span class="n">prp</span><span class="p">,</span><span class="n">Visualization</span> <span class="k">as</span> <span class="n">vs</span><span class="p">,</span> <span class="n">Cleaning</span> <span class="k">as</span> <span class="n">cln</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dataframe reading by pandas</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Tree_Data.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-cleaning-a-fundamental-step">
+<h2><span style="color:green"> Data Cleaning: A Fundamental Step </span><a class="headerlink" href="#data-cleaning-a-fundamental-step" title="Permalink to this heading">#</a></h2>
+<p>In this Jupyter Notebook, we will commence our data analysis journey by focusing on the foundational process of data cleaning.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We will create an instance of our data and name it tree_cleaner.</span>
+
+<span class="n">tree_cleaner</span> <span class="o">=</span> <span class="n">cln</span><span class="o">.</span><span class="n">TreeDataCleaner</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <strong>detect_na</strong> function will detect the columns with null values and print out the null values correspondingly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The columns with null values is given as an output.</span>
+
+<span class="n">tree_cleaner</span><span class="o">.</span><span class="n">detect_na</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Columns with null values:
+[&#39;EMF&#39;, &#39;Event&#39;, &#39;Harvest&#39;, &#39;Alive&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <strong>impute_na()</strong> function is used to impute missing values in the DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># PS: This function have no output. By default it is either a mean imputation or constant imputation. You can</span>
+<span class="c1"># refer to the documentation for more information.</span>
+
+<span class="n">tree_cleaner</span><span class="o">.</span><span class="n">impute_na</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This <strong>modify_status()</strong> function will modify the “NA” and “X” values in Alive column to 0 and 1 respectively where 0 indicates the plant is Dead and the 1 indicates the plant is alive. Also the function renames the Event column as Dead where 1 idicates the plant is dead and 0 indicates the plant is alive.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The values in the Alive coulmn is now set to 0&#39;s and 1&#39;s and also the column Event is now set to Dead</span>
+
+<span class="n">tree_cleaner</span><span class="o">.</span><span class="n">modify_status</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>No</th>
+      <th>Plot</th>
+      <th>Subplot</th>
+      <th>Species</th>
+      <th>Light_ISF</th>
+      <th>Light_Cat</th>
+      <th>Core</th>
+      <th>Soil</th>
+      <th>Adult</th>
+      <th>Sterile</th>
+      <th>...</th>
+      <th>AMF</th>
+      <th>EMF</th>
+      <th>Phenolics</th>
+      <th>Lignin</th>
+      <th>NSC</th>
+      <th>Census</th>
+      <th>Time</th>
+      <th>Dead</th>
+      <th>Harvest</th>
+      <th>Alive</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>126</td>
+      <td>1</td>
+      <td>C</td>
+      <td>Acer saccharum</td>
+      <td>0.106</td>
+      <td>Med</td>
+      <td>2017</td>
+      <td>Prunus serotina</td>
+      <td>I</td>
+      <td>Non-Sterile</td>
+      <td>...</td>
+      <td>22.00</td>
+      <td>26.47675</td>
+      <td>-0.56</td>
+      <td>13.86</td>
+      <td>12.15</td>
+      <td>4</td>
+      <td>14.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>11</td>
+      <td>1</td>
+      <td>C</td>
+      <td>Quercus alba</td>
+      <td>0.106</td>
+      <td>Med</td>
+      <td>2017</td>
+      <td>Quercus rubra</td>
+      <td>970</td>
+      <td>Non-Sterile</td>
+      <td>...</td>
+      <td>15.82</td>
+      <td>31.07000</td>
+      <td>5.19</td>
+      <td>20.52</td>
+      <td>19.29</td>
+      <td>33</td>
+      <td>115.5</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>12</td>
+      <td>1</td>
+      <td>C</td>
+      <td>Quercus rubra</td>
+      <td>0.106</td>
+      <td>Med</td>
+      <td>2017</td>
+      <td>Prunus serotina</td>
+      <td>J</td>
+      <td>Non-Sterile</td>
+      <td>...</td>
+      <td>24.45</td>
+      <td>28.19000</td>
+      <td>3.36</td>
+      <td>24.74</td>
+      <td>15.01</td>
+      <td>18</td>
+      <td>63.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2823</td>
+      <td>7</td>
+      <td>D</td>
+      <td>Acer saccharum</td>
+      <td>0.080</td>
+      <td>Med</td>
+      <td>2016</td>
+      <td>Prunus serotina</td>
+      <td>J</td>
+      <td>Non-Sterile</td>
+      <td>...</td>
+      <td>22.23</td>
+      <td>26.47675</td>
+      <td>-0.71</td>
+      <td>14.29</td>
+      <td>12.36</td>
+      <td>4</td>
+      <td>14.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5679</td>
+      <td>14</td>
+      <td>A</td>
+      <td>Acer saccharum</td>
+      <td>0.060</td>
+      <td>Low</td>
+      <td>2017</td>
+      <td>Prunus serotina</td>
+      <td>689</td>
+      <td>Non-Sterile</td>
+      <td>...</td>
+      <td>21.15</td>
+      <td>26.47675</td>
+      <td>-0.58</td>
+      <td>10.85</td>
+      <td>11.20</td>
+      <td>4</td>
+      <td>14.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 24 columns</p>
+</div></div></div>
+</div>
+<p>This <strong>input_values()</strong> function will remove the column that the user give in.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The given column &quot;Plot&quot; is now removed permanently.</span>
+
+<span class="n">tree_cleaner</span><span class="o">.</span><span class="n">del_cols</span><span class="p">([</span><span class="s1">&#39;Plot&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can see here that it no longer exists.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tree_cleaner</span><span class="o">.</span><span class="n">display</span><span class="p">()</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;No&#39;, &#39;Subplot&#39;, &#39;Species&#39;, &#39;Light_ISF&#39;, &#39;Light_Cat&#39;, &#39;Core&#39;, &#39;Soil&#39;,
+       &#39;Adult&#39;, &#39;Sterile&#39;, &#39;Conspecific&#39;, &#39;Myco&#39;, &#39;SoilMyco&#39;, &#39;PlantDate&#39;,
+       &#39;AMF&#39;, &#39;EMF&#39;, &#39;Phenolics&#39;, &#39;Lignin&#39;, &#39;NSC&#39;, &#39;Census&#39;, &#39;Time&#39;, &#39;Dead&#39;,
+       &#39;Harvest&#39;, &#39;Alive&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="preprocessing-for-further-development">
+<h2><span style="color:green"> Preprocessing for Further Development </span><a class="headerlink" href="#preprocessing-for-further-development" title="Permalink to this heading">#</a></h2>
+<p>In this section, we’ll merge the changes made previously and insert them into a preprocessing instance for further development.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We will create an instance of our data from the previous cleaning and name it preprocess.</span>
+
+<span class="n">preprocess</span> <span class="o">=</span> <span class="n">prp</span><span class="o">.</span><span class="n">DataPreprocessor</span><span class="p">(</span><span class="n">tree_cleaner</span><span class="o">.</span><span class="n">display</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can type in a numerical column with a scaler type and the returned data will be normalized</span>
+<span class="c1"># on the defined coloumns</span>
+
+<span class="n">preprocess</span><span class="o">.</span><span class="n">normalize_data</span><span class="p">([</span><span class="s2">&quot;Light_ISF&quot;</span><span class="p">],</span> <span class="n">scaler_type</span><span class="o">=</span><span class="s2">&quot;minmax&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s2">&quot;Light_ISF&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Light_ISF</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.573643</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.573643</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.573643</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.372093</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.217054</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2778</th>
+      <td>0.612403</td>
+    </tr>
+    <tr>
+      <th>2779</th>
+      <td>0.666667</td>
+    </tr>
+    <tr>
+      <th>2780</th>
+      <td>0.666667</td>
+    </tr>
+    <tr>
+      <th>2781</th>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>2782</th>
+      <td>0.844961</td>
+    </tr>
+  </tbody>
+</table>
+<p>2783 rows × 1 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can also in put multiple columns to normalize, but if you input by mistake a non-numerical feature,</span>
+<span class="c1"># or a feature with issues, a message will be outputted to warn that only numerical are allowed.</span>
+
+<span class="n">preprocess</span><span class="o">.</span><span class="n">normalize_data</span><span class="p">([</span><span class="s2">&quot;Lignin&quot;</span><span class="p">,</span> <span class="s2">&quot;Soil&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Soil&#39; is not a numeric column! It is either categorical or contains n/a values! Only numeric columns can be normalized!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Once this is fixed, it will return the data normalized too. If you have noticed, in this case, the default </span>
+<span class="c1"># normalization will be a normal one according to the guassian distribution.</span>
+
+<span class="n">preprocess</span><span class="o">.</span><span class="n">normalize_data</span><span class="p">([</span><span class="s2">&quot;Lignin&quot;</span><span class="p">,</span> <span class="s2">&quot;AMF&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s2">&quot;Lignin&quot;</span><span class="p">,</span> <span class="s2">&quot;AMF&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Lignin</th>
+      <th>AMF</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.280272</td>
+      <td>0.117566</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.702262</td>
+      <td>-0.384572</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.324829</td>
+      <td>0.316634</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.216835</td>
+      <td>0.136254</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-0.724330</td>
+      <td>0.048502</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The display function will display the dataframe with all of its previous changes.</span>
+
+<span class="n">preprocess</span><span class="o">.</span><span class="n">display</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>No</th>
+      <th>Subplot</th>
+      <th>Species</th>
+      <th>Light_ISF</th>
+      <th>Light_Cat</th>
+      <th>Core</th>
+      <th>Soil</th>
+      <th>Adult</th>
+      <th>Sterile</th>
+      <th>Conspecific</th>
+      <th>...</th>
+      <th>AMF</th>
+      <th>EMF</th>
+      <th>Phenolics</th>
+      <th>Lignin</th>
+      <th>NSC</th>
+      <th>Census</th>
+      <th>Time</th>
+      <th>Dead</th>
+      <th>Harvest</th>
+      <th>Alive</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>126</td>
+      <td>C</td>
+      <td>Acer saccharum</td>
+      <td>0.573643</td>
+      <td>Med</td>
+      <td>2017</td>
+      <td>Prunus serotina</td>
+      <td>I</td>
+      <td>Non-Sterile</td>
+      <td>Heterospecific</td>
+      <td>...</td>
+      <td>0.117566</td>
+      <td>26.47675</td>
+      <td>-0.56</td>
+      <td>-0.280272</td>
+      <td>12.15</td>
+      <td>4</td>
+      <td>14.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>11</td>
+      <td>C</td>
+      <td>Quercus alba</td>
+      <td>0.573643</td>
+      <td>Med</td>
+      <td>2017</td>
+      <td>Quercus rubra</td>
+      <td>970</td>
+      <td>Non-Sterile</td>
+      <td>Heterospecific</td>
+      <td>...</td>
+      <td>-0.384572</td>
+      <td>31.07000</td>
+      <td>5.19</td>
+      <td>0.702262</td>
+      <td>19.29</td>
+      <td>33</td>
+      <td>115.5</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>12</td>
+      <td>C</td>
+      <td>Quercus rubra</td>
+      <td>0.573643</td>
+      <td>Med</td>
+      <td>2017</td>
+      <td>Prunus serotina</td>
+      <td>J</td>
+      <td>Non-Sterile</td>
+      <td>Heterospecific</td>
+      <td>...</td>
+      <td>0.316634</td>
+      <td>28.19000</td>
+      <td>3.36</td>
+      <td>1.324829</td>
+      <td>15.01</td>
+      <td>18</td>
+      <td>63.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2823</td>
+      <td>D</td>
+      <td>Acer saccharum</td>
+      <td>0.372093</td>
+      <td>Med</td>
+      <td>2016</td>
+      <td>Prunus serotina</td>
+      <td>J</td>
+      <td>Non-Sterile</td>
+      <td>Heterospecific</td>
+      <td>...</td>
+      <td>0.136254</td>
+      <td>26.47675</td>
+      <td>-0.71</td>
+      <td>-0.216835</td>
+      <td>12.36</td>
+      <td>4</td>
+      <td>14.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5679</td>
+      <td>A</td>
+      <td>Acer saccharum</td>
+      <td>0.217054</td>
+      <td>Low</td>
+      <td>2017</td>
+      <td>Prunus serotina</td>
+      <td>689</td>
+      <td>Non-Sterile</td>
+      <td>Heterospecific</td>
+      <td>...</td>
+      <td>0.048502</td>
+      <td>26.47675</td>
+      <td>-0.58</td>
+      <td>-0.724330</td>
+      <td>11.20</td>
+      <td>4</td>
+      <td>14.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 23 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="visualization-at-last">
+<h2><span style="color:green">  Visualization at last! </span><a class="headerlink" href="#visualization-at-last" title="Permalink to this heading">#</a></h2>
+<p>In this last part, we’ll make into good use our previous cleaning and preprocessing in order to try and visualize our data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We insert our changes into a variable df_clean to further work with it.</span>
+
+<span class="n">df_clean</span> <span class="o">=</span> <span class="n">preprocess</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <strong>summarize()</strong> function returns a table of frequencies of the preselected variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using the summarize function it is possible to get tables of frequencies or relative frequencies </span>
+<span class="c1"># of the variables. the tables of frequencies and relative frequencies are displayed for </span>
+<span class="c1"># the variables &quot;Species&quot; and &quot;Subplot&quot;.</span>
+
+<span class="n">vs</span><span class="o">.</span><span class="n">summarize</span><span class="p">(</span><span class="n">df</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">,</span> 
+             <span class="n">col</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Species&#39;</span><span class="p">,</span> <span class="s1">&#39;Subplot&#39;</span><span class="p">],</span> 
+             <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;Frequency and Relative frequency&quot;</span><span class="p">,</span> 
+             <span class="n">dec</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Summary for Species:
+
+           Species  Frequency  Relative frequency
+0   Acer saccharum        751               26.99
+1  Prunus serotina        749               26.91
+2     Quercus alba        673               24.18
+3    Quercus rubra        610               21.92
+
+Summary for Subplot:
+
+  Subplot  Frequency  Relative frequency
+0       A        701               25.19
+1       D        666               23.93
+2       B        663               23.82
+3       C        646               23.21
+4       E        107                3.84
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also change the amount of decimals in the <strong>summarize()</strong> function like shown by contrast from the above table to the below table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vs</span><span class="o">.</span><span class="n">summarize</span><span class="p">(</span><span class="n">df</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">,</span> 
+             <span class="n">col</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Dead&#39;</span><span class="p">],</span> 
+             <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;Relative frequency&quot;</span><span class="p">,</span> 
+             <span class="n">dec</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Summary for Dead:
+
+   Dead  Relative frequency
+0   1.0             57.0248
+1   0.0             42.9752
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is also possible to display the Frequencies without the relative frequencies.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vs</span><span class="o">.</span><span class="n">summarize</span><span class="p">(</span><span class="n">df</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">,</span>
+             <span class="n">col</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Dead&#39;</span><span class="p">],</span>
+             <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Summary for Dead:
+
+   Dead  Frequency
+0   1.0       1587
+1   0.0       1196
+</pre></div>
+</div>
+</div>
+</div>
+<p>Furthermore, we can summarize the numerical columns using the function <strong>compute_stats()</strong>. We can use it just with the columns: “Ligth ISF”, “AMF”, “EMF”, “Phenolics”, “Lignin” and “NSC”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vs</span><span class="o">.</span><span class="n">compute_stats</span><span class="p">(</span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">selected_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Light_ISF&#39;</span><span class="p">,</span> <span class="s1">&#39;AMF&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Mean</th>
+      <th>Standard Deviation</th>
+      <th>Minimum</th>
+      <th>Maximum</th>
+      <th>Median</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Light_ISF</th>
+      <td>0.085707</td>
+      <td>0.025638</td>
+      <td>0.032</td>
+      <td>0.161</td>
+      <td>0.082</td>
+    </tr>
+    <tr>
+      <th>AMF</th>
+      <td>20.553069</td>
+      <td>12.309587</td>
+      <td>0.000</td>
+      <td>100.000</td>
+      <td>18.000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>If the selected columns are not among the ones specified above, the function returns an error message.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In this case, &quot;Census&quot; is the irrelevant column.</span>
+
+<span class="n">vs</span><span class="o">.</span><span class="n">compute_stats</span><span class="p">(</span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">selected_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Phenolics&#39;</span><span class="p">,</span> <span class="s1">&#39;EMF&#39;</span><span class="p">,</span> <span class="s1">&#39;Census&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error: &#39;Census&#39; is not one of the specified columns.
+</pre></div>
+</div>
+</div>
+</div>
+<p>In order to visualize the data, specifically the status of the plant compared to other variables,
+it is possible to use the function <strong>bar_plot()</strong>. The possibilities for the combination of variables are:</p>
+<ul class="simple">
+<li><p>“Species_vs_Status”</p></li>
+<li><p>“Species_vs_field”</p></li>
+<li><p>“Light level vs status”</p></li>
+</ul>
+<p>You can refer to the documentation for more details.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vs</span><span class="o">.</span><span class="n">bar_plot</span><span class="p">(</span><span class="n">df</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">,</span> 
+            <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;Species_vs_Status&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4d2de38350f6d73c820696cf7064e59a619fbac6669e00f9f9412992fc0745f1.png" src="../_images/4d2de38350f6d73c820696cf7064e59a619fbac6669e00f9f9412992fc0745f1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vs</span><span class="o">.</span><span class="n">bar_plot</span><span class="p">(</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;Species_vs_field&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8b1596d4887916c7822559ed879cb6c9043ee7b8dba56629706c8c4a948dda30.png" src="../_images/8b1596d4887916c7822559ed879cb6c9043ee7b8dba56629706c8c4a948dda30.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vs</span><span class="o">.</span><span class="n">bar_plot</span><span class="p">(</span><span class="n">df</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;Light level vs status&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3c4747990280f355514185ae4f48c2600da6ea8a52d63766f318e9c94977d60f.png" src="../_images/3c4747990280f355514185ae4f48c2600da6ea8a52d63766f318e9c94977d60f.png" />
+</div>
+</div>
+<p>The scatter_plot function will give out a scatter plot where it takes numerical X and Y-axis as one of the parameter, as well as the legend and the title.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vs</span><span class="o">.</span><span class="n">scatter_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;Lignin&quot;</span><span class="p">,</span> <span class="s2">&quot;Phenolics&quot;</span><span class="p">,</span> <span class="s2">&quot;Event&quot;</span><span class="p">,</span> <span class="s2">&quot;Lignin vs Phenolics&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7e668399be38c1ebe864836f7b6841cf60c26a31e149eb72fa6ce3db9fa56ef2.png" src="../_images/7e668399be38c1ebe864836f7b6841cf60c26a31e149eb72fa6ce3db9fa56ef2.png" />
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../tree_lab.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">tree_lab package</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction"><span style="color:green"> Introduction </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives"><span style="color:green"> Objectives </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background"><span style="color:green"> Background </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-data"><span style="color:green"> About The Data </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-get-started"><span style="color:green"> Let’s Get Started! </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-a-fundamental-step"><span style="color:green"> Data Cleaning: A Fundamental Step </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-for-further-development"><span style="color:green"> Preprocessing for Further Development </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-at-last"><span style="color:green">  Visualization at last! </span></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Fedi Ghanmi, Sarvin Raaj Gunasekar, Elisa Negrini
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Fedi Ghanmi, Sarvin Raaj Gunasekar, Elisa Negrini.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
