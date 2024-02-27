@@ -1,0 +1,575 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tree_lab.Visualization &#8212; Tree Survival Project</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/tree_lab/Visualization';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Tree Survival Project</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for tree_lab.Visualization</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plot</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">polars.selectors</span> <span class="k">as</span> <span class="nn">cs</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+<span class="kn">from</span> <span class="nn">tree_lab</span> <span class="kn">import</span> <span class="n">importing</span> <span class="k">as</span> <span class="n">imp</span>
+
+<span class="c1"># Ignore all warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">imp</span><span class="o">.</span><span class="n">import_data</span><span class="p">()</span>
+
+
+<span class="c1"># visualisation</span>
+<div class="viewcode-block" id="summarize">
+<a class="viewcode-back" href="../../source/tree_lab.html#tree_lab.Visualization.summarize">[docs]</a>
+<span class="k">def</span> <span class="nf">summarize</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;Frequency and Relative frequency&quot;</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Summarizes the columns selected from the dataframe by showing the</span>
+<span class="sd">    frequency and/or relative frequency of the categories</span>
+
+<span class="sd">    Parameter:</span>
+<span class="sd">    - df: a pandas dataframe</span>
+<span class="sd">    - col: the columns of the dataframe that the user wants to summarize</span>
+<span class="sd">    - kind: a string specifying if the frequency and/or the relative frequencies</span>
+<span class="sd">      should be displayed. The default is &quot;Frequency and Relative frequency&quot;,</span>
+<span class="sd">      but it is also possible to choose &quot;Frequency&quot;, or &quot;Relative frequency&quot;</span>
+
+<span class="sd">    Returns the frequency tables for the selected columns</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Create frequency tables for each specified column</span>
+    <span class="n">frequency_tables</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">col</span><span class="p">:</span>
+
+        <span class="n">value_counts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+        <span class="n">percentages</span> <span class="o">=</span> <span class="p">((</span><span class="n">value_counts</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dec</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;Frequency&quot;</span><span class="p">:</span>
+            <span class="n">frequency_table_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Frequency&#39;</span><span class="p">:</span> <span class="n">value_counts</span><span class="p">})</span>
+            <span class="n">frequency_table_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">frequency_table_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">column_name</span><span class="p">,</span> <span class="s1">&#39;Frequency&#39;</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;Relative frequency&quot;</span><span class="p">:</span>
+            <span class="n">frequency_table_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+                <span class="p">{</span><span class="s1">&#39;Relative frequency&#39;</span><span class="p">:</span> <span class="n">percentages</span><span class="p">})</span>
+            <span class="n">frequency_table_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">frequency_table_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">column_name</span><span class="p">,</span> <span class="s1">&#39;Relative frequency&#39;</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;Frequency and Relative frequency&quot;</span><span class="p">:</span>
+            <span class="n">frequency_table_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+                <span class="p">{</span><span class="s1">&#39;Frequency&#39;</span><span class="p">:</span> <span class="n">value_counts</span><span class="p">,</span> <span class="s1">&#39;Relative frequency&#39;</span><span class="p">:</span> <span class="n">percentages</span><span class="p">})</span>
+            <span class="n">frequency_table_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">frequency_table_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">column_name</span><span class="p">,</span> <span class="s1">&#39;Frequency&#39;</span><span class="p">,</span>
+                                          <span class="s1">&#39;Relative frequency&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">frequency_table_df</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Something went wrong!&quot;</span><span class="p">)</span>
+
+        <span class="n">frequency_tables</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">frequency_table_df</span>
+
+    <span class="c1"># Display the frequency tables</span>
+    <span class="k">for</span> <span class="n">column_name</span><span class="p">,</span> <span class="n">frequency_table_df</span> <span class="ow">in</span> <span class="n">frequency_tables</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Summary for </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">frequency_table_df</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="compute_stats">
+<a class="viewcode-back" href="../../source/tree_lab.html#tree_lab.Visualization.compute_stats">[docs]</a>
+<span class="k">def</span> <span class="nf">compute_stats</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">selected_columns</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes mean, standard deviation, minimum, maximum and median for the</span>
+<span class="sd">    specified columns</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        - dataframe: the dataframe</span>
+<span class="sd">        - selected_columns: list containing the columns for which we wish</span>
+<span class="sd">          to have the statistics</span>
+
+<span class="sd">    Returns a dataframe containing the statistics of the columns specified in input</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">valid_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Light_ISF&#39;</span><span class="p">,</span> <span class="s1">&#39;AMF&#39;</span><span class="p">,</span> <span class="s1">&#39;EMF&#39;</span><span class="p">,</span> <span class="s1">&#39;Phenolics&#39;</span><span class="p">,</span> <span class="s1">&#39;Lignin&#39;</span><span class="p">,</span> <span class="s1">&#39;NSC&#39;</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">selected_columns</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">column</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid_columns</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: &#39;</span><span class="si">{</span><span class="n">column</span><span class="si">}</span><span class="s2">&#39; is not one of the specified columns.&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+        <span class="s1">&#39;Mean&#39;</span><span class="p">:</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">selected_columns</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s1">&#39;Standard Deviation&#39;</span><span class="p">:</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">selected_columns</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span>
+        <span class="s1">&#39;Minimum&#39;</span><span class="p">:</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">selected_columns</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+        <span class="s1">&#39;Maximum&#39;</span><span class="p">:</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">selected_columns</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+        <span class="s1">&#39;Median&#39;</span><span class="p">:</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">selected_columns</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+    <span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">results</span></div>
+
+
+
+<div class="viewcode-block" id="bar_plot">
+<a class="viewcode-back" href="../../source/tree_lab.html#tree_lab.Visualization.bar_plot">[docs]</a>
+<span class="k">def</span> <span class="nf">bar_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">kind</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate different types of bar charts based on the specified kind parameter.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - df (pandas DataFrame): Input DataFrame containing relevant data.</span>
+<span class="sd">    - kind (str): Type of bar chart to generate. Options: &quot;Species_vs_Status&quot;,</span>
+<span class="sd">    &quot;Species_vs_field&quot;, &quot;Light level vs status&quot;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    The plots are displayed using the &#39;plot.show()&#39; method.</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">    - For &quot;Species_vs_Status&quot;, the function generates a bar plot showing</span>
+<span class="sd">    the count of alive and dead instances for each species.</span>
+<span class="sd">    - For &quot;Species_vs_field&quot;, the function creates a stacked bar chart</span>
+<span class="sd">    representing the count of each species in different fields.</span>
+<span class="sd">    - For &quot;Light level vs status&quot;, a bar plot is generated to display</span>
+<span class="sd">    the count of alive and dead instances for each light level category.</span>
+
+<span class="sd">    The function utilizes seaborn and matplotlib for visualization</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;Species_vs_Status&quot;</span><span class="p">:</span>
+
+        <span class="n">df_subset</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Species&#39;</span><span class="p">,</span> <span class="s1">&#39;Alive&#39;</span><span class="p">,</span> <span class="s1">&#39;Dead&#39;</span><span class="p">]]</span>
+        <span class="n">by_species_df</span> <span class="o">=</span> <span class="n">df_subset</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Species&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+        <span class="c1"># Create and add a new column containing the species names</span>
+        <span class="n">new_column_data</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Acer saccharum&quot;</span><span class="p">,</span> <span class="s2">&quot;Prunus serotina&quot;</span><span class="p">,</span> <span class="s2">&quot;Quercus alba&quot;</span><span class="p">,</span>
+                           <span class="s2">&quot;Quercus rubra&quot;</span><span class="p">]</span>
+        <span class="n">by_species_df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Species&#39;</span><span class="p">,</span> <span class="n">new_column_data</span><span class="p">)</span>
+
+        <span class="n">species_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">by_species_df</span><span class="p">)</span>
+
+        <span class="n">data_counts</span> <span class="o">=</span> <span class="n">species_df</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span>
+                                      <span class="n">value_vars</span><span class="o">=</span><span class="n">cs</span><span class="o">.</span><span class="n">numeric</span><span class="p">(),</span>
+                                      <span class="n">variable_name</span><span class="o">=</span><span class="s2">&quot;Status&quot;</span><span class="p">,</span>
+                                      <span class="n">value_name</span><span class="o">=</span><span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+
+        <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+
+        <span class="n">data_counts2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data_counts</span><span class="p">,</span>
+                                    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="s2">&quot;Status&quot;</span><span class="p">,</span> <span class="s2">&quot;Count&quot;</span><span class="p">])</span>
+        <span class="c1"># Plotting the bar chart</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">data_counts2</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span>
+            <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Count&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Status&quot;</span><span class="p">,</span>
+            <span class="n">errorbar</span><span class="o">=</span><span class="s2">&quot;sd&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;dark&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.6</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">6</span>
+        <span class="p">)</span>
+        <span class="n">g</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+        <span class="n">plot</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>  <span class="c1"># leave space for the title</span>
+        <span class="n">g</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Bar Chart: Species vs Status&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">patches</span><span class="p">:</span>
+            <span class="n">g</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                          <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">get_height</span><span class="p">()),</span>
+                          <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                          <span class="n">textcoords</span><span class="o">=</span><span class="s1">&#39;offset points&#39;</span><span class="p">)</span>
+        <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;Species_vs_field&quot;</span><span class="p">:</span>
+
+        <span class="n">df_subset</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Species&#39;</span><span class="p">,</span> <span class="s1">&#39;Plot&#39;</span><span class="p">]]</span>
+        <span class="n">contingency_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df_subset</span><span class="p">[</span><span class="s1">&#39;Plot&#39;</span><span class="p">],</span> <span class="n">df_subset</span><span class="p">[</span><span class="s1">&#39;Species&#39;</span><span class="p">])</span>
+
+        <span class="n">df_final</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">contingency_table</span><span class="p">)</span>
+
+        <span class="c1"># Plotting the bar chart</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">df_final</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Field&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Count of Species for Each Field&#39;</span><span class="p">)</span>
+        <span class="n">plot</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Species&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+        <span class="n">plot</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>  <span class="c1"># Adjust layout to make space for the legend</span>
+        <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;Light level vs status&quot;</span><span class="p">:</span>
+
+        <span class="n">df_sublight</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Light_Cat&#39;</span><span class="p">,</span> <span class="s1">&#39;Alive&#39;</span><span class="p">,</span> <span class="s1">&#39;Dead&#39;</span><span class="p">]]</span>
+        <span class="n">by_light_df</span> <span class="o">=</span> <span class="n">df_sublight</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Light_Cat&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+        <span class="n">light_cat</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;High&quot;</span><span class="p">,</span> <span class="s2">&quot;Low&quot;</span><span class="p">,</span> <span class="s2">&quot;Med&quot;</span><span class="p">]</span>
+        <span class="n">by_light_df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Light_Cat&#39;</span><span class="p">,</span> <span class="n">light_cat</span><span class="p">)</span>
+
+        <span class="n">light_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">by_light_df</span><span class="p">)</span>
+
+        <span class="n">data_light_counts</span> <span class="o">=</span> <span class="n">light_df</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="s2">&quot;Light_Cat&quot;</span><span class="p">,</span>
+                                          <span class="n">value_vars</span><span class="o">=</span><span class="n">cs</span><span class="o">.</span><span class="n">numeric</span><span class="p">(),</span>
+                                          <span class="n">variable_name</span><span class="o">=</span><span class="s2">&quot;Status&quot;</span><span class="p">,</span>
+                                          <span class="n">value_name</span><span class="o">=</span><span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+
+        <span class="c1"># plot</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+
+        <span class="n">data_light_counts2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data_light_counts</span><span class="p">,</span>
+                                          <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Light_Cat&quot;</span><span class="p">,</span> <span class="s2">&quot;Status&quot;</span><span class="p">,</span>
+                                                   <span class="s2">&quot;Count&quot;</span><span class="p">])</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">data_light_counts2</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span>
+            <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Light_Cat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Count&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Status&quot;</span><span class="p">,</span>
+            <span class="n">errorbar</span><span class="o">=</span><span class="s2">&quot;sd&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;pink&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.6</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">6</span>
+        <span class="p">)</span>
+        <span class="n">g</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Light level&quot;</span><span class="p">,</span> <span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+        <span class="n">plot</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>  <span class="c1"># leave space for the title</span>
+        <span class="n">g</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Bar Chart: light level vs status&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">patches</span><span class="p">:</span>
+            <span class="n">g</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                          <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">get_height</span><span class="p">()),</span>
+                          <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                          <span class="n">textcoords</span><span class="o">=</span><span class="s1">&#39;offset points&#39;</span><span class="p">)</span>
+
+        <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="scatter_plot">
+<a class="viewcode-back" href="../../source/tree_lab.html#tree_lab.Visualization.scatter_plot">[docs]</a>
+<span class="k">def</span> <span class="nf">scatter_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">column_x</span><span class="p">,</span> <span class="n">column_y</span><span class="p">,</span> <span class="n">hue_column</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; This function creates a scatter plot for the specified columns in the DataFrame &quot;&quot;&quot;</span>
+
+    <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Input validation</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_numeric_dtype</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_x</span><span class="p">]):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The column &#39;</span><span class="si">{</span><span class="n">column_x</span><span class="si">}</span><span class="s2">&#39; must contain numerical data.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_numeric_dtype</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_y</span><span class="p">]):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The column &#39;</span><span class="si">{</span><span class="n">column_y</span><span class="si">}</span><span class="s2">&#39; must contain numerical data.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Create the scatter plot with hue and style based on the specified column</span>
+    <span class="n">plot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">column_x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">column_y</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="n">hue_column</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">hue_column</span><span class="p">,</span>
+                    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> <span class="n">markers</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Set labels and title</span>
+    <span class="n">plot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">column_x</span><span class="p">)</span>
+    <span class="n">plot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">column_y</span><span class="p">)</span>
+    <span class="n">plot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+
+    <span class="c1"># Add legend</span>
+    <span class="n">plot</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">hue_column</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Adjust layout to make space for the legend</span>
+    <span class="n">plot</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+    <span class="c1"># Show the plot</span>
+    <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Fedi Ghanmi, Sarvin Raaj Gunasekar, Elisa Negrini
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Fedi Ghanmi, Sarvin Raaj Gunasekar, Elisa Negrini.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
