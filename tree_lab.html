@@ -411,8 +411,10 @@ Renames the ‘Event’ column to ‘Dead’.</p>
 - df (pandas DataFrame): Input DataFrame containing relevant data.
 - kind (str): Type of bar chart to generate. Options: “Species_vs_Status”,
 “Species_vs_field”, “Light level vs status”.</p>
-<p>Returns:
-The plots are displayed using the ‘plot.show()’ method.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The plots are displayed using the ‘plot.show()’ method.</p>
+</dd>
+</dl>
 <p>Notes:
 - For “Species_vs_Status”, the function generates a bar plot showing
 the count of alive and dead instances for each species.
@@ -435,14 +437,28 @@ specified columns</p>
 to have the statistics</p></li>
 </ul>
 </dd>
+<dt>Returns:</dt><dd><p>a dataframe containing the statistics of the columns specified in input</p>
+</dd>
 </dl>
-<p>Returns a dataframe containing the statistics of the columns specified in input</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tree_lab.Visualization.scatter_plot">
 <span class="sig-prename descclassname"><span class="pre">tree_lab.Visualization.</span></span><span class="sig-name descname"><span class="pre">scatter_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tree_lab/Visualization.html#scatter_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tree_lab.Visualization.scatter_plot" title="Permalink to this definition">#</a></dt>
 <dd><p>This function creates a scatter plot for the specified columns in the DataFrame</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><ul class="simple">
+<li><p>df: a dataframe</p></li>
+<li><p>column_x: a string specifying the name of a numerical variable of df</p></li>
+<li><p>column_y: a string specifying the name of a numerical variable of df</p></li>
+<li><p>hue_column: allows to assign a categorical variable to the data points
+and represent it using different colours</p></li>
+<li><p>title: a string specifying the title of the plot</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><p>The plots are displayed using the ‘plot.show()’ method.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">

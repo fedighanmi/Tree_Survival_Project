@@ -332,7 +332,8 @@ document.write(`
 <span class="sd">        - selected_columns: list containing the columns for which we wish</span>
 <span class="sd">          to have the statistics</span>
 
-<span class="sd">    Returns a dataframe containing the statistics of the columns specified in input</span>
+<span class="sd">    Returns:</span>
+<span class="sd">         a dataframe containing the statistics of the columns specified in input</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">valid_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Light_ISF&#39;</span><span class="p">,</span> <span class="s1">&#39;AMF&#39;</span><span class="p">,</span> <span class="s1">&#39;EMF&#39;</span><span class="p">,</span> <span class="s1">&#39;Phenolics&#39;</span><span class="p">,</span> <span class="s1">&#39;Lignin&#39;</span><span class="p">,</span> <span class="s1">&#39;NSC&#39;</span><span class="p">]</span>
 
@@ -362,7 +363,7 @@ document.write(`
 <span class="sd">    &quot;Species_vs_field&quot;, &quot;Light level vs status&quot;.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">    The plots are displayed using the &#39;plot.show()&#39; method.</span>
+<span class="sd">        The plots are displayed using the &#39;plot.show()&#39; method.</span>
 
 <span class="sd">    Notes:</span>
 <span class="sd">    - For &quot;Species_vs_Status&quot;, the function generates a bar plot showing</span>
@@ -471,7 +472,20 @@ document.write(`
 
 
 <div class="viewcode-block" id="scatter_plot"><a class="viewcode-back" href="../../tree_lab.html#tree_lab.Visualization.scatter_plot">[docs]</a><span class="k">def</span> <span class="nf">scatter_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">column_x</span><span class="p">,</span> <span class="n">column_y</span><span class="p">,</span> <span class="n">hue_column</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; This function creates a scatter plot for the specified columns in the DataFrame &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function creates a scatter plot for the specified columns in the DataFrame</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        - df: a dataframe</span>
+<span class="sd">        - column_x: a string specifying the name of a numerical variable of df</span>
+<span class="sd">        - column_y: a string specifying the name of a numerical variable of df</span>
+<span class="sd">        - hue_column: allows to assign a categorical variable to the data points</span>
+<span class="sd">          and represent it using different colours</span>
+<span class="sd">        - title: a string specifying the title of the plot</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The plots are displayed using the &#39;plot.show()&#39; method.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
     <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
 
