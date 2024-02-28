@@ -37,7 +37,6 @@ class TreeDataCleaner:
 
     def modify_status(self):
         """
-
         Modifies the 'Alive' column by replacing 'X' with 1.
         Renames the 'Event' column to 'Dead'.
 
