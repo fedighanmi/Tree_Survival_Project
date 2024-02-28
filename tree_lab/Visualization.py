@@ -72,7 +72,8 @@ def compute_stats(dataframe, selected_columns):
         - selected_columns: list containing the columns for which we wish
           to have the statistics
 
-    Returns a dataframe containing the statistics of the columns specified in input
+    Returns:
+         a dataframe containing the statistics of the columns specified in input
     """
     valid_columns = ['Light_ISF', 'AMF', 'EMF', 'Phenolics', 'Lignin', 'NSC']
 
@@ -102,7 +103,7 @@ def bar_plot(df, kind):
     "Species_vs_field", "Light level vs status".
 
     Returns:
-    The plots are displayed using the 'plot.show()' method.
+        The plots are displayed using the 'plot.show()' method.
 
     Notes:
     - For "Species_vs_Status", the function generates a bar plot showing
@@ -211,7 +212,20 @@ def bar_plot(df, kind):
 
 
 def scatter_plot(df, column_x, column_y, hue_column, title):
-    """ This function creates a scatter plot for the specified columns in the DataFrame """
+    """
+    This function creates a scatter plot for the specified columns in the DataFrame
+
+    Parameters:
+        - df: a dataframe
+        - column_x: a string specifying the name of a numerical variable of df
+        - column_y: a string specifying the name of a numerical variable of df
+        - hue_column: allows to assign a categorical variable to the data points
+          and represent it using different colours
+        - title: a string specifying the title of the plot
+
+    Returns:
+        The plots are displayed using the 'plot.show()' method.
+        """
 
     sns.set_theme(style="whitegrid")
 
