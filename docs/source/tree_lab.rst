@@ -36,10 +36,8 @@ tree\_lab.preprocessing module
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
 
-.. automodule:: tree_lab
+.. automodule:: tree_lab.module
    :members:
    :undoc-members:
    :show-inheritance:

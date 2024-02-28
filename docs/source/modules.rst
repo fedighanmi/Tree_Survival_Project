@@ -1,5 +1,5 @@
-Tree_Survival_Project
-=====================
+tree_lab
+========
 
 .. toctree::
    :maxdepth: 4
