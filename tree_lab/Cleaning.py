@@ -11,6 +11,7 @@ class TreeDataCleaner:
 
     def detect_na(self):
         """
+
         Checks for null values in the dataset, prints columns with null values (if any),
         and removes duplicate rows in the dataset.
         """
