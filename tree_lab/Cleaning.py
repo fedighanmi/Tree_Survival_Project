@@ -42,6 +42,7 @@ class TreeDataCleaner:
 
         Returns:
             pandas.DataFrame: The modified DataFrame.
+
         """
         self.data['Alive'] = self.data['Alive'].replace('X', 1)
         self.data = self.data.rename(columns={'Event': 'Dead'})
