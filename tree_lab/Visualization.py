@@ -223,6 +223,7 @@ def scatter_plot(df, column_x, column_y, hue_column, title):
           and represent it using different colours
         - title: a string specifying the title of the plot
 
+
     Returns:
         The plots are displayed using the 'plot.show()' method.
         """
