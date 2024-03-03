@@ -228,6 +228,7 @@ def scatter_plot(df, column_x, column_y, hue_column, title):
         The plots are displayed using the 'plot.show()' method.
         """
 
+
     sns.set_theme(style="whitegrid")
 
     # Input validation
