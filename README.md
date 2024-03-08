@@ -1,4 +1,5 @@
-# tree_lab
+# tree_lab ![Contributors](https://img.shields.io/badge/Contributors-3-brightgreen)
+
 
 tree_lab is a Python package designed to simplify dataset analysis for users with minimal technical expertise in a specific use case with a specific dataset.
 
