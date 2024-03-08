@@ -4,7 +4,7 @@ tree_lab is a Python package designed to simplify dataset analysis for users wit
 
 ## Overview
 
-The goal of this project is to provide a user-friendly functions for basic dataset analysis. It includes functionalities for performing basic preprocessing, cleaning and visualizing results.
+The goal of this project is to provide user-friendly functions for basic dataset analysis. It includes functionalities for performing basic preprocessing, cleaning and visualizing results.
 
 ### Installation
 
@@ -19,7 +19,7 @@ All required packages will be automatically installed during the installation of
 
 ## Usage
 
-After installing, you can import it in your python file or jupyter notebook. There is an example notebook in this repoitory that you can use as a guideline of what you can do. For detailed information about all functions and features, refer to the documentation.
+After installing, you can import it in your Python file or Jupyter notebook. There is an example notebook in this repository that you can use as a guideline. For detailed information about all functions and features, refer to the documentation.
 
 ## Requirements
 To use our package, you need to have [Python 3.8](https://www.python.org/downloads/) or above in your machine.
