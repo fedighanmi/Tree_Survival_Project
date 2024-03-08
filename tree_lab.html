@@ -348,7 +348,7 @@ document.write(`
 <td><p>Checks for null values in the dataset, prints columns with null values (if any), and removes duplicate rows in the dataset.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#tree_lab.Cleaning.TreeDataCleaner.display" title="tree_lab.Cleaning.TreeDataCleaner.display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">display</span></code></a>()</p></td>
-<td><p>Returns:</p></td>
+<td><p>It displays the current state of the data.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#tree_lab.Cleaning.TreeDataCleaner.impute_na" title="tree_lab.Cleaning.TreeDataCleaner.impute_na"><code class="xref py py-obj docutils literal notranslate"><span class="pre">impute_na</span></code></a>()</p></td>
 <td><p>Imputes missing values in the 'EMF' column by filling them with the mean of the column.</p></td>
@@ -382,8 +382,9 @@ and removes duplicate rows in the dataset.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="tree_lab.Cleaning.TreeDataCleaner.display">
 <span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tree_lab/Cleaning.html#TreeDataCleaner.display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tree_lab.Cleaning.TreeDataCleaner.display" title="Permalink to this definition">#</a></dt>
-<dd><dl class="simple">
-<dt>Returns:</dt><dd><p>pandas.DataFrame: the current state of the data.</p>
+<dd><p>It displays the current state of the data.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>pandas.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
@@ -477,11 +478,9 @@ frequency and/or relative frequency of the categories</p>
 <p>Parameter:
 - df: a pandas dataframe
 - col: the columns of the dataframe that the user wants to summarize
-- kind: a string specifying if the frequency and/or the relative frequencies</p>
-<blockquote>
-<div><p>should be displayed. The default is “Frequency and Relative frequency”,
+- kind: a string specifying if the frequency and/or the relative frequencies
+should be displayed. The default is “Frequency and Relative frequency”,
 but it is also possible to choose “Frequency”, or “Relative frequency”</p>
-</div></blockquote>
 <p>Returns the frequency tables for the selected columns</p>
 </dd></dl>
 
@@ -539,9 +538,11 @@ scaler type.</p>
 <dt>Parameters:</dt><dd><ul class="simple">
 <li><p>numeric_columns (list): list of column names containing numeric data</p></li>
 </ul>
-<p>to be normalized.
-- scaler_type (str): the type of scaler to be used.
-Options: ‘normal’ (default), ‘minmax’, ‘max_absolute’.</p>
+<p>to be normalized.</p>
+<ul class="simple">
+<li><p>scaler_type (str): the type of scaler to be used.</p></li>
+</ul>
+<p>Options: ‘normal’ (default), ‘minmax’, ‘max_absolute’.</p>
 </dd>
 <dt>Returns:</dt><dd><p>pandas.DataFrame: the normalized data.</p>
 </dd>
