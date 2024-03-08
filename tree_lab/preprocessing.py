@@ -7,17 +7,7 @@ class DataPreprocessor:
     A class for preprocessing data.
 
     Parameters:
-    - data (pandas.DataFrame): The input data for preprocessing.
-
-    Methods:
-    - normalize_data(numeric_columns, scaler_type='normal'): Normalizes the
-      numeric columns of the input data using the specified scaler type.
-    - onehot_encode(columns, keep_original=True): One hot encodes the inputted
-      categorical columns while deciding on keeping the original attribute or not.
-    - display(): Returns the current state of the data.
-
-    Attributes:
-    - data (pandas.DataFrame): The original input data.
+        - data: pandas.DataFrame
     """
 
     def __init__(self, data):
@@ -36,16 +26,16 @@ class DataPreprocessor:
         scaler type.
 
         Parameters:
-        - numeric_columns (list): List of column names containing numeric data
-          to be normalized.
-        - scaler_type (str): The type of scaler to be used.
-          Options: 'normal' (default), 'minmax', 'max_absolute'.
+            - numeric_columns (list): list of column names containing numeric data
+            to be normalized.
+            - scaler_type (str): the type of scaler to be used.
+            Options: 'normal' (default), 'minmax', 'max_absolute'.
 
         Returns:
-        pandas.DataFrame: The normalized data.
+            pandas.DataFrame: the normalized data.
 
         Raises:
-        ValueError: If the specified columns are not numeric or contain n/a values.
+        ValueError, if the specified columns are not numeric or contain NA values.
         """
 
         stop = False
@@ -83,16 +73,16 @@ class DataPreprocessor:
         Performs one-hot encoding on specified columns of the input data.
 
         Parameters:
-        - columns (list): List of column names containing categorical data
-          to be one-hot encoded.
-        - keep_original (bool): If True, keeps the original columns in addition
-          to the one-hot encoded columns.
+            - columns (list): list of column names containing categorical data
+            to be one-hot encoded.
+            - keep_original (bool): if True, keeps the original columns in addition
+            to the one-hot encoded columns.
 
         Returns:
-        pandas.DataFrame: The one-hot encoded data.
+            pandas.DataFrame: the one-hot encoded data.
 
         Raises:
-        ValueError: If the specified columns are not of type 'object'.
+        ValueError, if the specified columns are not of type 'object'.
         """
 
         proceed = True
@@ -118,10 +108,9 @@ class DataPreprocessor:
 
     def display(self):
         """
-        Returns the current state of the data.
 
         Returns:
-        pandas.DataFrame: The current state of the data.
+            pandas.DataFrame: the current state of the data.
         """
 
         return self.data

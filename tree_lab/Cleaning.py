@@ -3,7 +3,7 @@ class TreeDataCleaner:
     Initializes a TreeDataCleaner object.
 
     Parameters:
-        data (pandas.DataFrame): The input pandas DataFrame containing tree data.
+        - data: pandas.DataFrame
     """
 
     def __init__(self, data):
@@ -55,7 +55,7 @@ class TreeDataCleaner:
         Function to allow users to delete specified columns.
 
         Parameters:
-        - columns_to_delete: A list of column names to be deleted.
+            - columns_to_delete: a list of column names to be deleted.
 
         Example:
         cleaner.del_cols(['Age', 'Height'])
@@ -71,7 +71,7 @@ class TreeDataCleaner:
         """
 
         Returns:
-        pandas.DataFrame: The current state of the data.
+            pandas.DataFrame: the current state of the data.
         """
 
         return self.data
