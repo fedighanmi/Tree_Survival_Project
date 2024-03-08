@@ -1,4 +1,6 @@
-# tree_lab ![Contributors](https://img.shields.io/badge/Contributors-3-brightgreen) [![Testing](https://img.shields.io/badge/Testing-2-yellow)](https://github.com/fedighanmi/Tree_Survival_Project/tree/main/tests) ![License: GNU v3](https://img.shields.io/badge/License-GNU%20v3-orange)
+# tree_lab ![Contributors](https://img.shields.io/badge/Contributors-3-brightgreen) [![Testing](https://img.shields.io/badge/Testing-2-yellow)](https://github.com/fedighanmi/Tree_Survival_Project/tree/main/tests) ![License: GNU v3](https://img.shields.io/badge/License-GNU%20v3-orange) [![Documentation](https://img.shields.io/badge/Documentation-Yes-blue)](https://fedighanmi.github.io/Tree_Survival_Project/)
+
+
 
 
 
@@ -20,9 +22,7 @@ pip install -e .
 ```
 All required packages will be automatically installed during the installation of the tree_lab package.
 
-## Usage [![Documentation](https://img.shields.io/badge/Documentation-Yes-blue)](https://fedighanmi.github.io/Tree_Survival_Project/)
-
-
+## Usage 
 After installing, you can import it in your Python file or Jupyter notebook. There is an example notebook in this repository that you can use as a guideline. For detailed information about all functions and features, refer to the [documentation](https://fedighanmi.github.io/Tree_Survival_Project/).
 
 ## Requirements
