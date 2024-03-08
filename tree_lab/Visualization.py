@@ -99,20 +99,20 @@ def bar_plot(df, kind):
     Generate different types of bar charts based on the specified kind parameter.
 
     Parameters:
-    - df (pandas DataFrame): Input DataFrame containing relevant data.
-    - kind (str): Type of bar chart to generate. Options: "Species_vs_Status",
-    "Species_vs_field", "Light level vs status".
+        - df (pandas DataFrame): Input DataFrame containing relevant data.
+        - kind (str): Type of bar chart to generate. Options:
+          "Species_vs_Status", "Species_vs_field", "Light level vs status".
 
     Returns:
         The plots are displayed using the 'plot.show()' method.
 
     Notes:
-    - For "Species_vs_Status", the function generates a bar plot showing
-    the count of alive and dead instances for each species.
-    - For "Species_vs_field", the function creates a stacked bar chart
-    representing the count of each species in different fields.
-    - For "Light level vs status", a bar plot is generated to display
-    the count of alive and dead instances for each light level category.
+        - For "Species_vs_Status", the function generates a bar plot showing the
+          count of alive and dead instances for each species.
+        - For "Species_vs_field", the function creates a stacked bar chart
+          representing the count of each species in different fields.
+        - For "Light level vs status", a bar plot is generated to display the
+          count of alive and dead instances for each light level category.
 
     The function utilizes seaborn and matplotlib for visualization
     """

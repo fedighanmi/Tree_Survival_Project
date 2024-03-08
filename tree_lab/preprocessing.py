@@ -26,11 +26,10 @@ class DataPreprocessor:
         scaler type.
 
         Parameters:
-            - numeric_columns (list): list of column names containing numeric data
-            to be normalized.
-
-            - scaler_type (str): the type of scaler to be used.
-            Options: 'normal' (default), 'minmax', 'max_absolute'.
+            - numeric_columns (list): list of column names containing numeric
+              data to be normalized.
+            - scaler_type (str): the type of scaler to be used. Options:
+              'normal' (default), 'minmax', 'max_absolute'.
 
         Returns:
             pandas.DataFrame: the normalized data.
@@ -75,9 +74,9 @@ class DataPreprocessor:
 
         Parameters:
             - columns (list): list of column names containing categorical data
-            to be one-hot encoded.
-            - keep_original (bool): if True, keeps the original columns in addition
-            to the one-hot encoded columns.
+              to be one-hot encoded.
+            - keep_original (bool): if True, keeps the original columns in
+              addition to the one-hot encoded columns.
 
         Returns:
             pandas.DataFrame: the one-hot encoded data.
@@ -109,9 +108,10 @@ class DataPreprocessor:
 
     def display(self):
         """
+        It displays the current state of the data.
 
         Returns:
-            pandas.DataFrame: the current state of the data.
+            pandas.DataFrame
         """
 
         return self.data
