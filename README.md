@@ -1,4 +1,4 @@
-# tree_lab [![Contributors](https://img.shields.io/badge/Contributors-3-yellow)](https://github.com/fedighanmi/Tree_Survival_Project/graphs/contributors) [![Testing](https://img.shields.io/badge/Testing-passing-brightgreen)](https://github.com/fedighanmi/Tree_Survival_Project/tree/main/tests) [![License: GNU v3](https://img.shields.io/badge/License-GNU%20v3-orange)](https://github.com/fedighanmi/Tree_Survival_Project/blob/main/LICENSE) [![Documentation](https://img.shields.io/badge/Documentation-Yes-blue)](https://fedighanmi.github.io/Tree_Survival_Project/)
+# tree_lab [![Contributors](https://img.shields.io/badge/Contributors-3-yellow)](https://github.com/fedighanmi/Tree_Survival_Project/graphs/contributors) [![Tests](https://img.shields.io/badge/Testing-passing-brightgreen)](https://github.com/fedighanmi/Tree_Survival_Project/tree/main/tests) [![License: GNU v3](https://img.shields.io/badge/License-GNU%20v3-orange)](https://github.com/fedighanmi/Tree_Survival_Project/blob/main/LICENSE) [![Documentation](https://img.shields.io/badge/Documentation-Yes-blue)](https://fedighanmi.github.io/Tree_Survival_Project/)
 
 
 
