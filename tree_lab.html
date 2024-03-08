@@ -333,7 +333,9 @@ document.write(`
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Initializes a TreeDataCleaner object.</p>
 <dl class="simple">
-<dt>Parameters:</dt><dd><p>data (pandas.DataFrame): The input pandas DataFrame containing tree data.</p>
+<dt>Parameters:</dt><dd><ul class="simple">
+<li><p>data: pandas.DataFrame</p></li>
+</ul>
 </dd>
 </dl>
 <p class="rubric">Methods</p>
@@ -346,7 +348,7 @@ document.write(`
 <td><p>Checks for null values in the dataset, prints columns with null values (if any), and removes duplicate rows in the dataset.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#tree_lab.Cleaning.TreeDataCleaner.display" title="tree_lab.Cleaning.TreeDataCleaner.display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">display</span></code></a>()</p></td>
-<td><p>Returns: pandas.DataFrame: The current state of the data.</p></td>
+<td><p>Returns:</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#tree_lab.Cleaning.TreeDataCleaner.impute_na" title="tree_lab.Cleaning.TreeDataCleaner.impute_na"><code class="xref py py-obj docutils literal notranslate"><span class="pre">impute_na</span></code></a>()</p></td>
 <td><p>Imputes missing values in the 'EMF' column by filling them with the mean of the column.</p></td>
@@ -360,8 +362,12 @@ document.write(`
 <dt class="sig sig-object py" id="tree_lab.Cleaning.TreeDataCleaner.del_cols">
 <span class="sig-name descname"><span class="pre">del_cols</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">columns_to_delete</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tree_lab/Cleaning.html#TreeDataCleaner.del_cols"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tree_lab.Cleaning.TreeDataCleaner.del_cols" title="Permalink to this definition">#</a></dt>
 <dd><p>Function to allow users to delete specified columns.</p>
-<p>Parameters:
-- columns_to_delete: A list of column names to be deleted.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><ul class="simple">
+<li><p>columns_to_delete: a list of column names to be deleted.</p></li>
+</ul>
+</dd>
+</dl>
 <p>Example:
 cleaner.del_cols([‘Age’, ‘Height’])</p>
 </dd></dl>
@@ -376,8 +382,10 @@ and removes duplicate rows in the dataset.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="tree_lab.Cleaning.TreeDataCleaner.display">
 <span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tree_lab/Cleaning.html#TreeDataCleaner.display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tree_lab.Cleaning.TreeDataCleaner.display" title="Permalink to this definition">#</a></dt>
-<dd><p>Returns:
-pandas.DataFrame: The current state of the data.</p>
+<dd><dl class="simple">
+<dt>Returns:</dt><dd><p>pandas.DataFrame: the current state of the data.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -493,25 +501,17 @@ but it is also possible to choose “Frequency”, or “Relative frequency”</
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tree_lab.preprocessing.</span></span><span class="sig-name descname"><span class="pre">DataPreprocessor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tree_lab/preprocessing.html#DataPreprocessor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tree_lab.preprocessing.DataPreprocessor" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class for preprocessing data.</p>
-<p>Parameters:
-- data (pandas.DataFrame): The input data for preprocessing.</p>
-<p>Methods:
-- normalize_data(numeric_columns, scaler_type=’normal’): Normalizes the</p>
-<blockquote>
-<div><p>numeric columns of the input data using the specified scaler type.</p>
-</div></blockquote>
-<ul class="simple">
-<li><p>onehot_encode(columns, keep_original=True): One hot encodes the inputted
-categorical columns while deciding on keeping the original attribute or not.</p></li>
-<li><p>display(): Returns the current state of the data.</p></li>
+<dl class="simple">
+<dt>Parameters:</dt><dd><ul class="simple">
+<li><p>data: pandas.DataFrame</p></li>
 </ul>
-<p>Attributes:
-- data (pandas.DataFrame): The original input data.</p>
+</dd>
+</dl>
 <p class="rubric">Methods</p>
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#tree_lab.preprocessing.DataPreprocessor.display" title="tree_lab.preprocessing.DataPreprocessor.display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">display</span></code></a>()</p></td>
-<td><p>Returns the current state of the data.</p></td>
+<td><p>Returns:</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#tree_lab.preprocessing.DataPreprocessor.normalize_data" title="tree_lab.preprocessing.DataPreprocessor.normalize_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize_data</span></code></a>(numeric_columns[, scaler_type])</p></td>
 <td><p>Normalizes the numeric columns of the input data using the specified scaler type.</p></td>
@@ -524,9 +524,10 @@ categorical columns while deciding on keeping the original attribute or not.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="tree_lab.preprocessing.DataPreprocessor.display">
 <span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tree_lab/preprocessing.html#DataPreprocessor.display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tree_lab.preprocessing.DataPreprocessor.display" title="Permalink to this definition">#</a></dt>
-<dd><p>Returns the current state of the data.</p>
-<p>Returns:
-pandas.DataFrame: The current state of the data.</p>
+<dd><dl class="simple">
+<dt>Returns:</dt><dd><p>pandas.DataFrame: the current state of the data.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -534,38 +535,38 @@ pandas.DataFrame: The current state of the data.</p>
 <span class="sig-name descname"><span class="pre">normalize_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numeric_columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaler_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'normal'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tree_lab/preprocessing.html#DataPreprocessor.normalize_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tree_lab.preprocessing.DataPreprocessor.normalize_data" title="Permalink to this definition">#</a></dt>
 <dd><p>Normalizes the numeric columns of the input data using the specified
 scaler type.</p>
-<p>Parameters:
-- numeric_columns (list): List of column names containing numeric data</p>
-<blockquote>
-<div><p>to be normalized.</p>
-</div></blockquote>
-<ul class="simple">
-<li><p>scaler_type (str): The type of scaler to be used.
-Options: ‘normal’ (default), ‘minmax’, ‘max_absolute’.</p></li>
+<dl>
+<dt>Parameters:</dt><dd><ul class="simple">
+<li><p>numeric_columns (list): list of column names containing numeric data</p></li>
 </ul>
-<p>Returns:
-pandas.DataFrame: The normalized data.</p>
+<p>to be normalized.
+- scaler_type (str): the type of scaler to be used.
+Options: ‘normal’ (default), ‘minmax’, ‘max_absolute’.</p>
+</dd>
+<dt>Returns:</dt><dd><p>pandas.DataFrame: the normalized data.</p>
+</dd>
+</dl>
 <p>Raises:
-ValueError: If the specified columns are not numeric or contain n/a values.</p>
+ValueError, if the specified columns are not numeric or contain NA values.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tree_lab.preprocessing.DataPreprocessor.onehot_encode">
 <span class="sig-name descname"><span class="pre">onehot_encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_original</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tree_lab/preprocessing.html#DataPreprocessor.onehot_encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tree_lab.preprocessing.DataPreprocessor.onehot_encode" title="Permalink to this definition">#</a></dt>
 <dd><p>Performs one-hot encoding on specified columns of the input data.</p>
-<p>Parameters:
-- columns (list): List of column names containing categorical data</p>
-<blockquote>
-<div><p>to be one-hot encoded.</p>
-</div></blockquote>
-<ul class="simple">
-<li><p>keep_original (bool): If True, keeps the original columns in addition
-to the one-hot encoded columns.</p></li>
+<dl>
+<dt>Parameters:</dt><dd><ul class="simple">
+<li><p>columns (list): list of column names containing categorical data</p></li>
 </ul>
-<p>Returns:
-pandas.DataFrame: The one-hot encoded data.</p>
+<p>to be one-hot encoded.
+- keep_original (bool): if True, keeps the original columns in addition
+to the one-hot encoded columns.</p>
+</dd>
+<dt>Returns:</dt><dd><p>pandas.DataFrame: the one-hot encoded data.</p>
+</dd>
+</dl>
 <p>Raises:
-ValueError: If the specified columns are not of type ‘object’.</p>
+ValueError, if the specified columns are not of type ‘object’.</p>
 </dd></dl>
 
 </dd></dl>
