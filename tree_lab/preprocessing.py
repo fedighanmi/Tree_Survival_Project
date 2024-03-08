@@ -28,6 +28,7 @@ class DataPreprocessor:
         Parameters:
             - numeric_columns (list): list of column names containing numeric data
             to be normalized.
+
             - scaler_type (str): the type of scaler to be used.
             Options: 'normal' (default), 'minmax', 'max_absolute'.
 

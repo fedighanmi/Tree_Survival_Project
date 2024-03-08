@@ -22,8 +22,8 @@ def summarize(df, col, kind="Frequency and Relative frequency", dec=2):
     - df: a pandas dataframe
     - col: the columns of the dataframe that the user wants to summarize
     - kind: a string specifying if the frequency and/or the relative frequencies
-      should be displayed. The default is "Frequency and Relative frequency",
-      but it is also possible to choose "Frequency", or "Relative frequency"
+    should be displayed. The default is "Frequency and Relative frequency",
+    but it is also possible to choose "Frequency", or "Relative frequency"
 
     Returns the frequency tables for the selected columns
     """
