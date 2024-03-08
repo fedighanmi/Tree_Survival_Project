@@ -18,7 +18,8 @@ pip install -e .
 ```
 All required packages will be automatically installed during the installation of the tree_lab package.
 
-## Usage
+## Usage [![Documentation](https://img.shields.io/badge/Documentation-Yes-blue)](https://fedighanmi.github.io/Tree_Survival_Project/)
+
 
 After installing, you can import it in your Python file or Jupyter notebook. There is an example notebook in this repository that you can use as a guideline. For detailed information about all functions and features, refer to the [documentation](https://fedighanmi.github.io/Tree_Survival_Project/).
 
