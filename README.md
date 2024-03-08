@@ -19,7 +19,7 @@ All required packages will be automatically installed during the installation of
 
 ## Usage
 
-After installing, you can import it in your Python file or Jupyter notebook. There is an example notebook in this repository that you can use as a guideline. For detailed information about all functions and features, refer to the documentation.
+After installing, you can import it in your Python file or Jupyter notebook. There is an example notebook in this repository that you can use as a guideline. For detailed information about all functions and features, refer to the [documentation](https://fedighanmi.github.io/Tree_Survival_Project/).
 
 ## Requirements
 To use our package, you need to have [Python 3.8](https://www.python.org/downloads/) or above in your machine.
