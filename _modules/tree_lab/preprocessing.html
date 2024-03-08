@@ -286,11 +286,10 @@ document.write(`
 <span class="sd">        scaler type.</span>
 
 <span class="sd">        Parameters:</span>
-<span class="sd">            - numeric_columns (list): list of column names containing numeric data</span>
-<span class="sd">            to be normalized.</span>
-
-<span class="sd">            - scaler_type (str): the type of scaler to be used.</span>
-<span class="sd">            Options: &#39;normal&#39; (default), &#39;minmax&#39;, &#39;max_absolute&#39;.</span>
+<span class="sd">            - numeric_columns (list): list of column names containing numeric</span>
+<span class="sd">              data to be normalized.</span>
+<span class="sd">            - scaler_type (str): the type of scaler to be used. Options:</span>
+<span class="sd">              &#39;normal&#39; (default), &#39;minmax&#39;, &#39;max_absolute&#39;.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            pandas.DataFrame: the normalized data.</span>
@@ -335,9 +334,9 @@ document.write(`
 
 <span class="sd">        Parameters:</span>
 <span class="sd">            - columns (list): list of column names containing categorical data</span>
-<span class="sd">            to be one-hot encoded.</span>
-<span class="sd">            - keep_original (bool): if True, keeps the original columns in addition</span>
-<span class="sd">            to the one-hot encoded columns.</span>
+<span class="sd">              to be one-hot encoded.</span>
+<span class="sd">            - keep_original (bool): if True, keeps the original columns in</span>
+<span class="sd">              addition to the one-hot encoded columns.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            pandas.DataFrame: the one-hot encoded data.</span>
@@ -369,9 +368,10 @@ document.write(`
 
 <div class="viewcode-block" id="DataPreprocessor.display"><a class="viewcode-back" href="../../tree_lab.html#tree_lab.preprocessing.DataPreprocessor.display">[docs]</a>    <span class="k">def</span> <span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        It displays the current state of the data.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            pandas.DataFrame: the current state of the data.</span>
+<span class="sd">            pandas.DataFrame</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span></div></div>

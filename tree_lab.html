@@ -416,21 +416,25 @@ Renames the ‘Event’ column to ‘Dead’.</p>
 <dt class="sig sig-object py" id="tree_lab.Visualization.bar_plot">
 <span class="sig-prename descclassname"><span class="pre">tree_lab.Visualization.</span></span><span class="sig-name descname"><span class="pre">bar_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tree_lab/Visualization.html#bar_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tree_lab.Visualization.bar_plot" title="Permalink to this definition">#</a></dt>
 <dd><p>Generate different types of bar charts based on the specified kind parameter.</p>
-<p>Parameters:
-- df (pandas DataFrame): Input DataFrame containing relevant data.
-- kind (str): Type of bar chart to generate. Options: “Species_vs_Status”,
-“Species_vs_field”, “Light level vs status”.</p>
 <dl class="simple">
+<dt>Parameters:</dt><dd><ul class="simple">
+<li><p>df (pandas DataFrame): Input DataFrame containing relevant data.</p></li>
+<li><p>kind (str): Type of bar chart to generate. Options:
+“Species_vs_Status”, “Species_vs_field”, “Light level vs status”.</p></li>
+</ul>
+</dd>
 <dt>Returns:</dt><dd><p>The plots are displayed using the ‘plot.show()’ method.</p>
 </dd>
+<dt>Notes:</dt><dd><ul class="simple">
+<li><p>For “Species_vs_Status”, the function generates a bar plot showing the
+count of alive and dead instances for each species.</p></li>
+<li><p>For “Species_vs_field”, the function creates a stacked bar chart
+representing the count of each species in different fields.</p></li>
+<li><p>For “Light level vs status”, a bar plot is generated to display the
+count of alive and dead instances for each light level category.</p></li>
+</ul>
+</dd>
 </dl>
-<p>Notes:
-- For “Species_vs_Status”, the function generates a bar plot showing
-the count of alive and dead instances for each species.
-- For “Species_vs_field”, the function creates a stacked bar chart
-representing the count of each species in different fields.
-- For “Light level vs status”, a bar plot is generated to display
-the count of alive and dead instances for each light level category.</p>
 <p>The function utilizes seaborn and matplotlib for visualization</p>
 </dd></dl>
 
@@ -515,7 +519,7 @@ Relative frequency”, but it is also possible to choose “Frequency”, or
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#tree_lab.preprocessing.DataPreprocessor.display" title="tree_lab.preprocessing.DataPreprocessor.display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">display</span></code></a>()</p></td>
-<td><p>Returns:</p></td>
+<td><p>It displays the current state of the data.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#tree_lab.preprocessing.DataPreprocessor.normalize_data" title="tree_lab.preprocessing.DataPreprocessor.normalize_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize_data</span></code></a>(numeric_columns[, scaler_type])</p></td>
 <td><p>Normalizes the numeric columns of the input data using the specified scaler type.</p></td>
@@ -528,8 +532,9 @@ Relative frequency”, but it is also possible to choose “Frequency”, or
 <dl class="py method">
 <dt class="sig sig-object py" id="tree_lab.preprocessing.DataPreprocessor.display">
 <span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tree_lab/preprocessing.html#DataPreprocessor.display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tree_lab.preprocessing.DataPreprocessor.display" title="Permalink to this definition">#</a></dt>
-<dd><dl class="simple">
-<dt>Returns:</dt><dd><p>pandas.DataFrame: the current state of the data.</p>
+<dd><p>It displays the current state of the data.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>pandas.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
@@ -539,15 +544,13 @@ Relative frequency”, but it is also possible to choose “Frequency”, or
 <span class="sig-name descname"><span class="pre">normalize_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numeric_columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaler_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'normal'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tree_lab/preprocessing.html#DataPreprocessor.normalize_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tree_lab.preprocessing.DataPreprocessor.normalize_data" title="Permalink to this definition">#</a></dt>
 <dd><p>Normalizes the numeric columns of the input data using the specified
 scaler type.</p>
-<dl>
+<dl class="simple">
 <dt>Parameters:</dt><dd><ul class="simple">
-<li><p>numeric_columns (list): list of column names containing numeric data</p></li>
+<li><p>numeric_columns (list): list of column names containing numeric
+data to be normalized.</p></li>
+<li><p>scaler_type (str): the type of scaler to be used. Options:
+‘normal’ (default), ‘minmax’, ‘max_absolute’.</p></li>
 </ul>
-<p>to be normalized.</p>
-<ul class="simple">
-<li><p>scaler_type (str): the type of scaler to be used.</p></li>
-</ul>
-<p>Options: ‘normal’ (default), ‘minmax’, ‘max_absolute’.</p>
 </dd>
 <dt>Returns:</dt><dd><p>pandas.DataFrame: the normalized data.</p>
 </dd>
@@ -560,13 +563,13 @@ ValueError, if the specified columns are not numeric or contain NA values.</p>
 <dt class="sig sig-object py" id="tree_lab.preprocessing.DataPreprocessor.onehot_encode">
 <span class="sig-name descname"><span class="pre">onehot_encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_original</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tree_lab/preprocessing.html#DataPreprocessor.onehot_encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tree_lab.preprocessing.DataPreprocessor.onehot_encode" title="Permalink to this definition">#</a></dt>
 <dd><p>Performs one-hot encoding on specified columns of the input data.</p>
-<dl>
+<dl class="simple">
 <dt>Parameters:</dt><dd><ul class="simple">
-<li><p>columns (list): list of column names containing categorical data</p></li>
+<li><p>columns (list): list of column names containing categorical data
+to be one-hot encoded.</p></li>
+<li><p>keep_original (bool): if True, keeps the original columns in
+addition to the one-hot encoded columns.</p></li>
 </ul>
-<p>to be one-hot encoded.
-- keep_original (bool): if True, keeps the original columns in addition
-to the one-hot encoded columns.</p>
 </dd>
 <dt>Returns:</dt><dd><p>pandas.DataFrame: the one-hot encoded data.</p>
 </dd>
